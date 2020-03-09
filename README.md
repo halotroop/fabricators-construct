@@ -1,16 +1,9 @@
-# Fabric Example Mod
+# Untitled Forging Mod
 
-## Setup
-
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
-
-```
-./gradlew idea
-```
+This is an attempt to bring more realistic forging to Minecraft, like in Tinkers Construct. 
+(But for Fabric!)
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod is (un)available under CC0. If you stumble upon the source code somehow,
+feel free to use it. But you shouldn't, because this is a private repository!
