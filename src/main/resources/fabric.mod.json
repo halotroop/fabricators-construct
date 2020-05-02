@@ -1,25 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "forging",
+  "id": "tconstruct",
   "version": "${version}",
 
-  "name": "Realistic Forging",
-  "description": "An attempt to add more realistic forging into MC like Tinkers Construct.",
+  "name": "Fabricators' Construct",
+  "description": "A little of this, a little of that, a lot of tinkering, and a lot of tools",
   "authors": [
-    "halotroop2288 (Caroline Bell)"
+    "halotroop2288",
+    "shedaniel",
+    "Slime Knights"
   ],
   "contact": {
     "homepage": "https://halotroop.com/",
     "sources": "https://github.com/halotroop2288/untitled-fabric-forging-mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "logo.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.halotroop.forging.RealisticForging"
+      "com.halotroop.tconstruct.TConstruct"
     ],
     "client": [
     ],
@@ -31,10 +33,13 @@
 
   "depends": {
     "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": "1.16.x"
+    "fabric": ">=0.10",
+    "minecraft": "1.15.x",
+    "improved-stations": "1.2.5"
   },
   "suggests": {
-    "exfeatures": "*"
+    "techreborn": "*",
+    "rei": "*",
+    "hwyla": "*"
   }
 }

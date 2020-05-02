@@ -1,14 +1,21 @@
 plugins {
-	id 'fabric-loom' version '0.2.6-SNAPSHOT'
+	id 'fabric-loom' version '0.4.3'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_13
-targetCompatibility = JavaVersion.VERSION_13
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
+
+repositories {
+	maven {
+		name = 'JitPack'
+		url = 'https://jitpack.io/'
+	}
+}
 
 dependencies {
 	//to change the versions see the gradle.properties file
@@ -16,8 +23,10 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "io.github.prospector:modmenu:1.10.2+"
-	
+	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
+
+	modImplementation "com.github.shedaniel:improved-stations:0d80fc9988"
+	include "com.github.shedaniel:improved-stations:0d80fc9988"
 }
 
 processResources {
