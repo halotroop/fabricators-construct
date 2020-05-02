@@ -16,10 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockRegistry {
-	public static Block CRAFTING_STATION;
-	public static List<Block> BLOCKS = new ArrayList<Block>();
-	public static List<Item> BLOCK_ITEMS = new ArrayList<Item>();
-
+	public static List<Block> BLOCKS = new ArrayList<>();
+	public static List<Item> BLOCK_ITEMS = new ArrayList<>();
+	
 	public static Block CRAFTING_STATION;
 	
 	public static void registerAll() {
