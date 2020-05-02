@@ -2,6 +2,7 @@ package com.halotroop.tconstruct.registry;
 
 import com.halotroop.tconstruct.TinkerItemGroups;
 import com.halotroop.tconstruct.TConstruct;
+import com.halotroop.tconstruct.block.CraftingStationBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -15,12 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockRegistry {
-	public static List<Block> BLOCKS = new ArrayList<Block>();
-	public static List<Item> BLOCK_ITEMS = new ArrayList<Item>();
+	public static Block CRAFTING_STATION;
+	public static List<Block> BLOCKS = new ArrayList<>();
+	public static List<Item> BLOCK_ITEMS = new ArrayList<>();
 	
 	public static void registerAll() {
 		registerBlock("grout", Block.Settings.of(Material.CLAY), true);
 		
+		CRAFTING_STATION = Registry.register(Registry.BLOCK, new Identifier(TConstruct.modid, "crafting_station"), new CraftingStationBlock());
+		
+		// Storage Blocks
 		final String[] storage_block_names = new String[] {"cobalt", "ardite", "manyullyn", "knightslime", "pigiron", "silky_jewel"};
 		for (String name : storage_block_names) {
 			registerBlock(name + "_block", Block.Settings.copy(Blocks.DIAMOND_BLOCK), true);
