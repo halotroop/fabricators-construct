@@ -27,6 +27,8 @@ dependencies {
 
 	modImplementation "com.github.shedaniel:improved-stations:0d80fc9988"
 	include "com.github.shedaniel:improved-stations:0d80fc9988"
+
+	modImplementation "TechReborn:TechReborn-1.15:${project.tech_reborn_version}"
 }
 
 processResources {
