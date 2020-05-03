@@ -1,0 +1,21 @@
+{
+  "materialId": "tconstruct:bronze",
+  "stats": [
+    {
+      "id": "tconstruct:head",
+      "durability": 430,
+      "miningSpeed": 6.8,
+      "harvestLevel": 2,
+      "attack": 3.5
+    },
+    {
+      "id": "tconstruct:handle",
+      "modifier": 1.1,
+      "durability": 70
+    },
+    {
+      "id": "tconstruct:extra",
+      "durability": 80
+    }
+  ]
+}

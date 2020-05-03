@@ -1,0 +1,21 @@
+{
+  "materialId": "tconstruct:wood",
+  "stats": [
+    {
+      "id": "tconstruct:head",
+      "durability": 35,
+      "miningSpeed": 2.0,
+      "harvestLevel": 0,
+      "attack": 2.0
+    },
+    {
+      "id": "tconstruct:handle",
+      "modifier": 1.0,
+      "durability": 25
+    },
+    {
+      "id": "tconstruct:extra",
+      "durability": 15
+    }
+  ]
+}

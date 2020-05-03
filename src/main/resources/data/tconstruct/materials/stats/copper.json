@@ -1,0 +1,21 @@
+{
+  "materialId": "tconstruct:copper",
+  "stats": [
+    {
+      "id": "tconstruct:head",
+      "durability": 210,
+      "miningSpeed": 5.3,
+      "harvestLevel": 1,
+      "attack": 3.0
+    },
+    {
+      "id": "tconstruct:handle",
+      "modifier": 1.05,
+      "durability": 30
+    },
+    {
+      "id": "tconstruct:extra",
+      "durability": 100
+    }
+  ]
+}
