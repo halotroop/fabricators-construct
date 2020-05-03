@@ -320,10 +320,10 @@
 
     "_comment": "GUIs",
 
-    "itemGroup.tconstruct.tinkers_general": "Tinkers' General Items",
-    "itemGroup.tconstruct.tinkers_tools": "Tinkers' Tools",
-    "itemGroup.tconstruct.tinkers_tool_parts": "Tinkers' Toolparts",
-    "itemGroup.tconstruct.tinkers_smeltery": "Tinkers' Smeltery",
-    "itemGroup.tconstruct.tinkers_world": "Tinkers' World",
-    "itemGroup.tconstruct.tinkers_gadgets": "Tinkers' Gadgets"
+    "itemGroup.tconstruct.general": "Tinkers' General Items",
+    "itemGroup.tconstruct.tools": "Tinkers' Tools",
+    "itemGroup.tconstruct.tool_parts": "Tinkers' Toolparts",
+    "itemGroup.tconstruct.smeltery": "Tinkers' Smeltery",
+    "itemGroup.tconstruct.world": "Tinkers' World",
+    "itemGroup.tconstruct.gadgets": "Tinkers' Gadgets"
 }
