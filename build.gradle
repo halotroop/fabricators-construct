@@ -15,6 +15,14 @@ repositories {
 		name = 'JitPack'
 		url = 'https://jitpack.io/'
 	}
+	maven {
+		name = 'TehNut'
+		url "http://tehnut.info/maven"
+	}
+	maven {
+		name = "BuildCraft"
+		url = "https://mod-buildcraft.com/maven"
+	}
 }
 
 dependencies {
@@ -25,9 +33,11 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
 
-	modImplementation "com.github.shedaniel:improved-stations:0d80fc9988"
-	include "com.github.shedaniel:improved-stations:0d80fc9988"
+//	modImplementation "com.github.shedaniel:improved-stations:0d80fc9988"
+//	include "com.github.shedaniel:improved-stations:0d80fc9988"
 
+	modImplementation "me.shedaniel:RoughlyEnoughItems:${project.rei_version}"
+	modImplementation "alexiil.mc.lib:libblockattributes-all:${project.lba_version}"
 	modImplementation "TechReborn:TechReborn-1.15:${project.tech_reborn_version}"
 }
 

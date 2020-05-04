@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"tconstruct:oak_part_builder",
+		"tconstruct:spruce_part_builder",
+		"tconstruct:birch_part_builder",
+		"tconstruct:jungle_part_builder",
+		"tconstruct:acacia_part_builder",
+		"tconstruct:dark_oak_part_builder"
+	]
+}

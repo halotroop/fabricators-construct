@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"tconstruct:iron_tool_forge",
+		"tconstruct:pigiron_tool_forge",
+		"tconstruct:knightslime_tool_forge",
+		"tconstruct:aluminum_brass_tool_forge",
+		"tconstruct:cobalt_tool_forge",
+		"tconstruct:ardite_tool_forge",
+		"tconstruct:manyullyn_tool_forge",
+		"tconstruct:gold_tool_forge"
+	]
+}

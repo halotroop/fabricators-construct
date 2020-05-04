@@ -1,0 +1,12 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:iron",
+		"minecraft:gold",
+		"tconstruct:cobalt",
+		"tconstruct:ardite",
+		"tconstruct:manyullyn",
+		"tconstruct:knightslime",
+		"tconstruct:pigiron"
+	]
+}

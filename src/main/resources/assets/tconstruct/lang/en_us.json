@@ -1,5 +1,5 @@
 {
-    "_comment": "Tinkers Common",
+    "itemGroup.tconstruct.general": "Tinkers' General Items",
 
     "block.tconstruct.grout": "Grout",
     "block.tconstruct.grout.tooltip": "I am Grout!",
@@ -163,8 +163,8 @@
     "item.tconstruct.blue_slime_bucket": "Blue Slime Bucket",
 
     "item.tconstruct.purple_slime_bucket": "Purple Slime Bucket",
-
-    "_comment": "Tinkers Gadgets",
+    
+    "itemGroup.tconstruct.gadgets": "Tinkers' Gadgets",
 
     "block.tconstruct.stone_torch": "Stone Torch",
     "block.tconstruct.stone_ladder": "Stone Ladder",
@@ -238,8 +238,8 @@
     "item.tconstruct.soggy_spaghetti.tooltip": "Now they're all wet, even your spaghetti arms can bend them now.\nLet's hang them up and get them dry.",
     "item.tconstruct.cold_spaghetti": "Cold Dried Noodles",
     "item.tconstruct.cold_spaghetti.tooltip": "Well, that's better, but they still taste gross.\nWarming them up should make them edible.\nThey might even be good enough to get you off your weak knees.",
-
-    "_comment": "Tinkers World",
+    
+    "itemGroup.tconstruct.world": "Tinkers' World",
 
     "block.tconstruct.green_slime_dirt": "Green Slimy Dirt",
     "block.tconstruct.green_slime_dirt.tooltip": "block.tconstruct.slime_dirt.tooltip",
@@ -317,13 +317,39 @@
     "block.tconstruct.blue_slime_vine_end": "Blue Slimy Vine",
 
     "item.tconstruct.blue_slime_spawn_egg": "Blue Slime Spawn Egg",
-
-    "_comment": "GUIs",
-
-    "itemGroup.tconstruct.general": "Tinkers' General Items",
-    "itemGroup.tconstruct.tools": "Tinkers' Tools",
-    "itemGroup.tconstruct.tool_parts": "Tinkers' Toolparts",
+    
     "itemGroup.tconstruct.smeltery": "Tinkers' Smeltery",
-    "itemGroup.tconstruct.world": "Tinkers' World",
-    "itemGroup.tconstruct.gadgets": "Tinkers' Gadgets"
+    
+    "tconstuct.smeltery_item_tooltip": "Part of the Smeltery. Safe for decoration.",
+
+    "block.tconstruct.seared_bricks": "Seared Bricks",
+    "block.tconstruct.cracked_seared_bricks": "Cracked Seared Bricks",
+    "block.tconstruct.fancy_seared_bricks": "Fancy Seared Bricks",
+    "block.tconstruct.square_seared_bricks": "Square Seared Bricks",
+    "block.tconstruct.triangle_seared_bricks": "Triangle Seared Bricks",
+    "block.tconstruct.small_seared_bricks": "Small Seared Bricks",
+    "block.tconstruct.seared_brick_slab": "Seared Brick Slab",
+    "block.tconstruct.cracked_seared_brick_slab": "Cracked Seared Brick Slab",
+    "block.tconstruct.fancy_seared_brick_slab": "Fancy Seared Brick Slab",
+    "block.tconstruct.square_seared_brick_slab": "Square Seared Brick Slab",
+    "block.tconstruct.triangle_seared_brick_slab": "Triangle Seared Brick Slab",
+    "block.tconstruct.small_seared_brick_slab": "Small Seared Brick Slab",
+    "block.tconstruct.seared_brick_stairs": "Seared Brick Stairs",
+    "block.tconstruct.cracked_seared_brick_stairs": "Cracked Seared Brick Stairs",
+    "block.tconstruct.fancy_seared_brick_stairs": "Fancy Seared Brick Stairs",
+    "block.tconstruct.square_seared_brick_stairs": "Square Seared Brick Stairs",
+    "block.tconstruct.triangle_seared_brick_stairs": "Triangle Seared Brick Stairs",
+    "block.tconstruct.small_seared_brick_stairs": "Small Seared Brick Stairs",
+    
+    "block.tconstruct.seared_stone": "Seared Stone",
+    "block.tconstruct.seared_cobblestone": "Seared Cobblestone",
+    "block.tconstruct.seared_paver": "Seared Paver",
+    "block.tconstruct.seared_creeperface": "Seared Creeperface",
+    "block.tconstruct.seared_tiles": "Seared Tiles",
+    
+    "block.tconstruct.seared_glass": "Seared Glass",
+    "block.tconstruct.seared_window": "Seared Window",
+    
+    "itemGroup.tconstruct.tools": "Tinkers' Tools",
+    "itemGroup.tconstruct.tool_parts": "Tinkers' Toolparts"
 }

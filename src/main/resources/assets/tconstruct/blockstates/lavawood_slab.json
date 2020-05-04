@@ -1,7 +1,7 @@
 {
     "variants": {
-        "type=bottom": { "model": "tconstruct:block/slab/lavawood/slab" },
-        "type=top": { "model": "tconstruct:block/slab/lavawood/slab_top" },
+        "type=bottom": { "model": "tconstruct:block/slab/lavawood" },
+        "type=top": { "model": "tconstruct:block/slab/lavawood", "y": 180 },
         "type=double": { "model": "tconstruct:block/lavawood" }
     }
 }

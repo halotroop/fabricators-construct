@@ -1,38 +1,24 @@
 package com.halotroop.tconstruct.client.screen;
 
+import com.halotroop.tconstruct.client.screen.container.CraftingStationContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.shedaniel.istations.containers.CraftingStationContainer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.Block;
-import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.client.gui.screen.ingame.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 /*
- * Authors: shedaniel, SlimeKnights, halotroop2288
+ * @Authors: shedaniel
  */
 @Environment(EnvType.CLIENT)
 public class CraftingStationScreen extends ContainerScreen<CraftingStationContainer> {
 	
-	private static final Identifier BACKGROUND = new Identifier("textures/gui/container/crafting_table.png");
-	private Block block;
+	private static final Identifier BG_TEX = new Identifier("textures/gui/container/crafting_table.png");
 	
-	public CraftingStationScreen(CraftingStationContainer container, PlayerInventory inventory, Text title, Block block) {
+	public CraftingStationScreen(CraftingStationContainer container, PlayerInventory inventory, Text title) {
 		super(container, inventory, title);
-		this.block = block;
-		
-//		if(slots instanceof CraftingStationContainer) {
-//			CraftingStationContainer chestContainer = container.getSubContainer(SideInventoryContainer.class);
-//			if(chestContainer != null) {
-//				if(chestContainer.getTile() instanceof ChestBlockEntity) {
-//					// Fix: chests don't update their single/double chest status clientside once accessed
-//					((ChestBlockEntity) chestContainer.getTile()).doubleChestHandler = null;
-//				}
-//			}
-//		}
 	}
 	
 	@Override
@@ -50,9 +36,10 @@ public class CraftingStationScreen extends ContainerScreen<CraftingStationContai
 	
 	@Override
 	protected void drawBackground(float delta, int mouseX, int mouseY) {
-		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		assert this.minecraft != null;
-		this.minecraft.getTextureManager().bindTexture(BACKGROUND);
+		
+		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+		this.minecraft.getTextureManager().bindTexture(BG_TEX);
 		int i = this.x;
 		int j = (this.height - this.containerHeight) / 2;
 		this.blit(i, j, 0, 0, this.containerWidth, this.containerHeight);

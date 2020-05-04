@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"tconstruct:oak_stencil_table",
+		"tconstruct:spruce_stencil_table",
+		"tconstruct:birch_stencil_table",
+		"tconstruct:jungle_stencil_table",
+		"tconstruct:acacia_stencil_table",
+		"tconstruct:dark_oak_stencil_table"
+	]
+}

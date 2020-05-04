@@ -1,0 +1,28 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:crafting_table",
+		"tconstruct:crafting_station",
+		"tconstruct:tool_station",
+		"tconstruct:oak_stencil_table",
+		"tconstruct:spruce_stencil_table",
+		"tconstruct:birch_stencil_table",
+		"tconstruct:jungle_stencil_table",
+		"tconstruct:acacia_stencil_table",
+		"tconstruct:dark_oak_stencil_table",
+		"tconstruct:oak_part_builder",
+		"tconstruct:spruce_part_builder",
+		"tconstruct:birch_part_builder",
+		"tconstruct:jungle_part_builder",
+		"tconstruct:acacia_part_builder",
+		"tconstruct:dark_oak_part_builder",
+		"tconstruct:iron_tool_forge",
+		"tconstruct:pigiron_tool_forge",
+		"tconstruct:knightslime_tool_forge",
+		"tconstruct:aluminum_brass_tool_forge",
+		"tconstruct:cobalt_tool_forge",
+		"tconstruct:ardite_tool_forge",
+		"tconstruct:manyullyn_tool_forge",
+		"tconstruct:gold_tool_forge"
+	]
+}
