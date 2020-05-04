@@ -22,20 +22,19 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.registry;
+package com.halotroop.tconstruct.item;
 
-import com.halotroop.tconstruct.block.entity.CraftingStationBlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
+import com.halotroop.tconstruct.registry.ItemGroupsRegistry;
+import net.minecraft.item.Item;
 
-public class EntityRegistry {
-	public static BlockEntityType<CraftingStationBlockEntity> CRAFTING_STATION_BLOCK_ENTITY;
-	
-	static void registerAllBlockEntityTypes() {
-		CRAFTING_STATION_BLOCK_ENTITY = BlockEntityType.Builder.create(CraftingStationBlockEntity::new,
-				EverythingRegistry.BLOCKS.get("crafting_station")).build(null);
+public class CastItem extends Item {
+	private final boolean clay;
+	public CastItem(Boolean clay) {
+		super(new Item.Settings().group(ItemGroupsRegistry.SMELTERY.group));
+		this.clay = clay;
 	}
 	
-	static void registerAllEntityTypes() {
-		// TODO: Slimes
+	public boolean isClay() {
+		return clay;
 	}
 }

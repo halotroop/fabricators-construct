@@ -22,20 +22,48 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.registry;
+package com.halotroop.tconstruct.util;
 
-import com.halotroop.tconstruct.block.entity.CraftingStationBlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-
-public class EntityRegistry {
-	public static BlockEntityType<CraftingStationBlockEntity> CRAFTING_STATION_BLOCK_ENTITY;
+public enum ToolPart {
+	// Sign plate
+	SIGN_PLATE(ToolPartSlot.HEAD),
+	// Tool heads
+	AXE_HEAD(ToolPartSlot.HEAD),
+	BROAD_AXE_HEAD(ToolPartSlot.HEAD),
+	EXCAVATOR_HEAD(ToolPartSlot.HEAD),
+	PICKAXE_HEAD(ToolPartSlot.HEAD),
+	HAMMER_HEAD(ToolPartSlot.HEAD),
+	SCYTHE_KAMA(ToolPartSlot.HEAD),
+	SHOVEL_HEAD(ToolPartSlot.HEAD),
+	ARROW_HEAD(ToolPartSlot.HEAD),
+	// Blades
+	LARGE_SWORD_BLADE(ToolPartSlot.HEAD),
+	SWORD_BLADE(ToolPartSlot.HEAD),
+	KNIFE_BLADE(ToolPartSlot.HEAD),
 	
-	static void registerAllBlockEntityTypes() {
-		CRAFTING_STATION_BLOCK_ENTITY = BlockEntityType.Builder.create(CraftingStationBlockEntity::new,
-				EverythingRegistry.BLOCKS.get("crafting_station")).build(null);
-	}
+	// Sword Guards
+	HAND_GUARD(ToolPartSlot.GUARD),
+	WIDE_GUARD(ToolPartSlot.GUARD),
+	CROSS_GUARD(ToolPartSlot.GUARD),
 	
-	static void registerAllEntityTypes() {
-		// TODO: Slimes
+	// Bindings
+	BINDING(ToolPartSlot.BINDING),
+	TOUGH_BINDING(ToolPartSlot.BINDING),
+	
+	// Tool rods
+	TOOL_ROD(ToolPartSlot.ROD),
+	TOUGH_TOOL_ROD(ToolPartSlot.ROD),
+	
+	// Bow limb
+	BOWLIMB(ToolPartSlot.LIMB),
+	
+	// Miscellaneous
+	PLATE(ToolPartSlot.PLATE),
+	LARGE_PLATE(ToolPartSlot.PLATE),
+	PAN(ToolPartSlot.PAN);
+	
+	ToolPartSlot slot;
+	ToolPart(ToolPartSlot slot) {
+		this.slot = slot;
 	}
 }
