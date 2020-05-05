@@ -1,33 +1,28 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
-    {
-      "conditions": [
+    "conditions": [
         {
-          "pulseid": "tinker_gadgets",
-          "type": "tconstruct:pulse_loaded"
+            "type": "tconstruct:is_pulse_loaded",
+            "pulse_name": "TinkerGadgets"
         }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "###",
-          "#X#",
-          "###"
-        ],
-        "key": {
-          "#": {
+    ],
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "AAA",
+        "ABA",
+        "AAA"
+    ],
+    "key": {
+        "A": {
             "item": "minecraft:snowball"
-          },
-          "X": {
-            "tag": "forge:dusts/glowstone"
-          }
         },
-        "result": {
-          "item": "tconstruct:glow_ball",
-          "count": 8
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "dustGlowstone"
         }
-      }
+    },
+    "result": {
+        "item": "tconstruct:throwball",
+        "count": 8,
+        "data": 0
     }
-  ]
 }

@@ -1,0 +1,9 @@
+{
+	"parent": "tconstruct:block/table/table",
+	"textures": {
+		"top": "tconstruct:block/table/stencil_table_top",
+		"side": "tconstruct:block/table/table_side",
+		"leg": "#bottom",
+		"legBottom": "#bottom"
+	}
+}

@@ -26,8 +26,10 @@ package com.halotroop.tconstruct.registry;
 
 import com.halotroop.tconstruct.TConstruct;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -35,16 +37,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EverythingRegistry {
-	public static Map<String, Block> BLOCKS = new HashMap<>();
-	public static Map<String, Item> ITEMS = new HashMap<>();
+	private static Map<String, Block> BLOCKS = new HashMap<>();
+	private static Map<String, Item> ITEMS = new HashMap<>();
 	
-	public static Map<String, Block> GENERAL_BLOCKS = new HashMap<>();
-	public static Map<String, Block> SMELTERY_BLOCKS = new HashMap<>();
-	public static Map<String, Block> GADGETS_BLOCKS = new HashMap<>();
+	static Map<String, Block> GENERAL_BLOCKS = new HashMap<>();
+	static Map<String, Block> SMELTERY_BLOCKS = new HashMap<>();
+	static Map<String, Block> GADGETS_BLOCKS = new HashMap<>();
 	
-	public static Map<String, Item> GENERAL_ITEMS = new HashMap<>();
-	public static Map<String, Item> SMELTERY_ITEMS = new HashMap<>();
-	public static Map<String, Item> GADGETS_ITEMS = new HashMap<>();
+	static Map<String, Item> GENERAL_ITEMS = new HashMap<>();
+	static Map<String, Item> SMELTERY_ITEMS = new HashMap<>();
+	static Map<String, Item> GADGETS_ITEMS = new HashMap<>();
 	
 	static final String[] // Useful for stone-type and other fancy blocks
 			block_types = new String[] {"", "slab", "stairs"},
@@ -55,7 +57,6 @@ public class EverythingRegistry {
 	
 	public static void registerAll() {
 		SoundRegistry.registerAll();
-		ItemGroupsRegistry.init();
 		
 		GeneralRegistry.registerAllGeneralBlocks();
 		GeneralRegistry.registerAllGeneralItems();
@@ -76,30 +77,23 @@ public class EverythingRegistry {
 		
 		EntityRegistry.registerAllBlockEntityTypes();
 		EntityRegistry.registerAllEntityTypes();
-		ItemGroupsRegistry.init();
 	}
 	
 	// ---End of registration--- \\
-
-	static void registerGeneralBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, GENERAL_BLOCKS);
-		registerGeneralItem(name, new BlockItem(block, new Item.Settings().group(ItemGroupsRegistry.GENERAL.group)));
+	
+	static Block registerBlock (String name, Block entry, Map<String, Block> list) {
+		final Identifier id = TConstruct.makeID(name.toLowerCase());
+		if (Registry.BLOCK.get(id).equals(Blocks.AIR)) {
+			TConstruct.logger.debug("REGISTERING " + name);
+			Block block = Registry.register(Registry.BLOCK, id, entry);
+			list.put(name, block);
+			return block;
+		}
+		else return null;
 	}
 	
-	static void registerSmelteryBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, SMELTERY_BLOCKS);
-		registerSmelteryItem(name, new BlockItem(block, new Item.Settings().group(ItemGroupsRegistry.SMELTERY.group)));
-	}
-	
-	static void registerGadgetsBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, GADGETS_BLOCKS);
-		registerGadgetsItem(name, new BlockItem(block, new Item.Settings().group(ItemGroupsRegistry.GADGETS.group)));
-	}
-	
-	private static Block registerBlock (String name, Block entry, Map<String, Block> list) {
-		Block block = Registry.register(Registry.BLOCK, new Identifier(TConstruct.MODID, name.toLowerCase()), entry);
-		list.put(name, block);
-		return block;
+	public static Block getBlock(String name) {
+		return BLOCKS.get(name);
 	}
 	
 	// ~~~~~ ITEMS ~~~~~ \\
@@ -117,7 +111,14 @@ public class EverythingRegistry {
 	}
 	
 	private static void registerItem(String name, Item entry, Map<String, Item> list) {
-		Item item = Registry.register(Registry.ITEM, TConstruct.makeID(name), entry);
-		list.put(name, item);
+		final Identifier id = TConstruct.makeID(name.toLowerCase());
+		if (Registry.ITEM.get(id).equals(Items.AIR)) {
+			Item item = Registry.register(Registry.ITEM, id, entry);
+			list.put(name, item);
+		}
+	}
+	
+	public static Item getItem(String name) {
+		return ITEMS.get(name);
 	}
 }

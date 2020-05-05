@@ -1,13 +1,17 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "tconstruct:slime_balls",
-  "ingredients": [
-    {
-      "item": "tconstruct:congealed_green_slime"
+    "type": "minecraft:crafting_shaped",
+    "group": "tconstruct:slime_balls",
+    "pattern": [
+        "A"
+    ],
+    "key": {
+        "A": {
+            "item": "tconstruct:slime_congealed",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "minecraft:slime_ball",
+        "count": 4
     }
-  ],
-  "result": {
-    "item": "minecraft:slime_ball",
-    "count": 4
-  }
 }

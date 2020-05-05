@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "tconstruct:block/slab/mud_bricks" },
-        "type=top": { "model": "tconstruct:block/slab/mud_bricks", "y": 180 },
-        "type=double": { "model": "tconstruct:block/mud_bricks" }
-    }
-}

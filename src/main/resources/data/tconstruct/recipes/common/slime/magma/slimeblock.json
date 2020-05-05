@@ -7,11 +7,10 @@
     "###"
   ],
   "key": {
-    "#": {
-      "tag": "forge:slimeball/magma"
-    }
+    "#": {"type": "forge:ore_dict", "ore": "slimeballMagma"}
   },
   "result": {
-    "item": "tconstruct:magma_slime"
+    "item": "tconstruct:slime",
+    "data": 4
   }
 }

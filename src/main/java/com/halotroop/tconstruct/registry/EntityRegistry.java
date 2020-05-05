@@ -32,7 +32,7 @@ public class EntityRegistry {
 	
 	static void registerAllBlockEntityTypes() {
 		CRAFTING_STATION_BLOCK_ENTITY = BlockEntityType.Builder.create(CraftingStationBlockEntity::new,
-				EverythingRegistry.BLOCKS.get("crafting_station")).build(null);
+				EverythingRegistry.getBlock("crafting_station")).build(null);
 	}
 	
 	static void registerAllEntityTypes() {

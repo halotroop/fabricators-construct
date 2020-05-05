@@ -7,11 +7,10 @@
     "###"
   ],
   "key": {
-    "#": {
-      "tag": "forge:slimeball/purple"
-    }
+    "#": {"type": "forge:ore_dict", "ore": "slimeballPurple"}
   },
   "result": {
-    "item": "tconstruct:purple_slime"
+    "item": "tconstruct:slime",
+    "data": 2
   }
 }

@@ -1,13 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "group": "tconstruct:slime_balls",
-  "ingredients": [
-    {
-      "item": "tconstruct:magma_slime"
-    }
+  "pattern": [
+    "A"
   ],
+  "key": {
+    "A": {
+      "item": "tconstruct:slime",
+      "data": 4
+    }
+  },
   "result": {
-    "item": "tconstruct:magma_slime_ball",
-    "count": 9
+    "item": "tconstruct:edible",
+    "count": 9,
+    "data": 4
   }
 }

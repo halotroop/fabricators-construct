@@ -1,34 +1,29 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
-    {
-      "conditions": [
+    "conditions": [
         {
-          "pulseid": "tinker_gadgets",
-          "type": "tconstruct:pulse_loaded"
+            "type": "tconstruct:is_pulse_loaded",
+            "pulse_name": "TinkerGadgets"
         }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "#",
-          "#"
-        ],
-        "key": {
-          "#": [
+    ],
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "A",
+        "A"
+    ],
+    "key": {
+        "A": [
             {
-              "tag": "forge:stone"
+                "type": "forge:ore_dict",
+                "ore": "cobblestone"
             },
             {
-              "tag": "forge:cobblestone"
+                "type": "forge:ore_dict",
+                "ore": "stone"
             }
-          ]
-        },
-        "result": {
-          "item": "tconstruct:stone_stick",
-          "count": 4
-        }
-      }
+        ]
+    },
+    "result": {
+        "item": "tconstruct:stone_stick",
+        "count": 4
     }
-  ]
 }

@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "tconstruct:block/slab/dried_clay" },
-        "type=top": { "model": "tconstruct:block/slab/dried_clay", "y": 180 },
-        "type=double": { "model": "tconstruct:block/dried_clay" }
-    }
-}

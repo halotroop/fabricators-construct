@@ -1,0 +1,6 @@
+{
+	"parent": "tconstruct:block/table/tool_station",
+	"textures": {
+		"bottom": "minecraft:block/jungle_planks"
+	}
+}

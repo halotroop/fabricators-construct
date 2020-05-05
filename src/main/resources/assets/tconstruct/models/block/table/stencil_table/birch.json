@@ -1,0 +1,6 @@
+{
+	"parent": "tconstruct:block/table/stencil_table",
+	"textures": {
+		"bottom": "minecraft:block/birch_planks"
+	}
+}

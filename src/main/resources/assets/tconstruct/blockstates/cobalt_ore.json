@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "tconstruct:block/cobalt_ore"
+            "model": "tconstruct:block/ore/nether/cobalt"
         }
     }
 }

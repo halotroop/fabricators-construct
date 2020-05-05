@@ -1,16 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "tconstruct:congealed_slime",
+  "group": "tconstruct:congealed_slime_blocks",
   "pattern": [
-    "##",
-    "##"
+    "AA",
+    "AA"
   ],
   "key": {
-    "#": {
-      "tag": "forge:slimeball/magma"
-    }
+    "A": {"type": "forge:ore_dict", "ore": "slimeballMagma"}
   },
   "result": {
-    "item": "tconstruct:congealed_magma_slime"
+    "item": "tconstruct:slime_congealed",
+    "data": 4
   }
 }

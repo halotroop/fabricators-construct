@@ -24,13 +24,13 @@
 
 package com.halotroop.tconstruct.item;
 
-import com.halotroop.tconstruct.registry.ItemGroupsRegistry;
+import com.halotroop.tconstruct.TConstruct;
 import net.minecraft.item.Item;
 
 public class CastItem extends Item {
 	private final boolean clay;
 	public CastItem(Boolean clay) {
-		super(new Item.Settings().group(ItemGroupsRegistry.SMELTERY.group));
+		super(new Item.Settings().group(TConstruct.SMELTERY_TAB));
 		this.clay = clay;
 	}
 	

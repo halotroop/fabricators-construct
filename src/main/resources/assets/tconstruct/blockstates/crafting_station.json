@@ -1,19 +1,7 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "tconstruct:block/crafting_station"
-    },
-    "facing=south": {
-      "model": "tconstruct:block/crafting_station",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "tconstruct:block/crafting_station",
-      "y": 270
-    },
-    "facing=east": {
-      "model": "tconstruct:block/crafting_station",
-      "y": 90
+    "": {
+      "model": "tconstruct:block/table/crafting_station"
     }
   }
 }

@@ -25,20 +25,25 @@
 package com.halotroop.tconstruct.registry;
 
 import static com.halotroop.tconstruct.registry.EverythingRegistry.*;
+
+import com.halotroop.tconstruct.TConstruct;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.TorchBlock;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 
 public class GadgetsRegistry {
 	static void registerAllGadgetsBlocks() {
 		// --Gadgets Blocks-- \\
+		registerGadgetsBlock("stone_torch", new StoneTorch(Block.Settings.copy(Blocks.TORCH)));
 		
 		// GADGETS MANY MANY BROWN BLOCKS
 		for (String block_type : block_types) {
-			
 			String nullOrUnderscore = block_type.equals("") ? "" : ("_"); // places an _ in between if not null
 			
 			// "DRIED BRICKS" + SLABS + STAIRS
-			registerGadgetsBlock("dried_brick" + (block_type.equals("") ? "s" : block_type),
+			registerGadgetsBlock("dried_brick" + (block_type.equals("") ? "s" : ("_" + block_type)),
 					new Block(Block.Settings.copy(Blocks.STONE_BRICKS))
 			);
 			// "DRIED CLAY( BRICKS)" + SLABS + STAIRS
@@ -49,7 +54,7 @@ public class GadgetsRegistry {
 			}
 			// "BROWNSTONE" + SLABS + STAIRS
 			for (String stone_style : stone_styles) {
-				registerSmelteryBlock(
+				registerGadgetsBlock(
 						// Ex: cobbled_seared_stone_stairs, smooth_seared_stone
 						(stone_style.equals("") ? "" : (stone_style + "_")) // Places an _ after if not null
 								+ "brownstone"
@@ -59,7 +64,7 @@ public class GadgetsRegistry {
 			}
 			// "BROWNSTONE BRICK(S)" + SLABS + STAIRS
 			for (String stone_brick_style : stone_brick_styles) {
-				registerSmelteryBlock(
+				registerGadgetsBlock(
 						// Ex: inscribed_brownstone_slab, cracked_brownstone
 						stone_brick_style + (stone_brick_style.equals("") ? "" : "_") // Places an _ after if not null
 								+ "brownstone_brick" +
@@ -69,6 +74,19 @@ public class GadgetsRegistry {
 		}
 	}
 	
+	static class StoneTorch extends TorchBlock {
+		public StoneTorch(Settings settings) {
+			super(settings);
+		}
+	}
+	
 	static void registerAllGadgetsItems() {
+		// TODO: SLIMESLINGS,
+		registerGadgetsItem("stone_stick", new Item(new Item.Settings().group(TConstruct.GADGETS_TAB)));
+	}
+	
+	static void registerGadgetsBlock(String name, Block entry) {
+		Block block = registerBlock(name, entry, GADGETS_BLOCKS);
+		registerGadgetsItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.GADGETS_TAB)));
 	}
 }

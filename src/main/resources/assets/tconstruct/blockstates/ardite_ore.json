@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "tconstruct:block/ardite_ore"
+            "model": "tconstruct:block/ore/nether/ardite"
         }
     }
 }

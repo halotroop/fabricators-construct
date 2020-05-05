@@ -26,12 +26,30 @@ package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EverythingRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TConstruct implements ModInitializer {
 	public static final String MODID = "tconstruct";
+	
+	public static final ItemGroup
+			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"), () ->
+			{return new ItemStack(EverythingRegistry.getItem("grout"));}),
+			TOOLS = FabricItemGroupBuilder.build(makeID("tools"),  () ->
+			{return new ItemStack(Items.ACACIA_PLANKS);}),
+			TOOL_PARTS_TAB = FabricItemGroupBuilder.build(makeID("tool_parts"), () ->
+			{return new ItemStack(Items.ACACIA_PLANKS);}),
+			SMELTERY_TAB = FabricItemGroupBuilder.build(makeID("smeltery"),() ->
+			{return new ItemStack(Items.ACACIA_PLANKS);}),
+			WORLD = FabricItemGroupBuilder.build(makeID("world"), () ->
+			{return new ItemStack(Items.ACACIA_PLANKS);}),
+			GADGETS_TAB = FabricItemGroupBuilder.build(makeID("gadgets"), () ->
+			{return new ItemStack(Items.ACACIA_PLANKS);});
 	
 	// Add this to VM arguments to see debug logs
 	// -Dfabric.log.level=debug

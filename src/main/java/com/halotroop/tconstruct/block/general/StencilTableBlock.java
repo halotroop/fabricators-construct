@@ -25,10 +25,19 @@
 package com.halotroop.tconstruct.block.general;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.world.BlockView;
 
-public class StencilTableBlock extends Block {
+public class StencilTableBlock extends ToolTableBlock implements Waterloggable {
 	public StencilTableBlock() {
 		super(Block.Settings.copy(Blocks.CRAFTING_TABLE));
+	}
+	
+	@Override
+	public BlockEntity createBlockEntity(BlockView view) {
+		return null;
 	}
 }

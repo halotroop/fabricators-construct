@@ -25,7 +25,6 @@
 package com.halotroop.tconstruct.block.entity;
 
 import com.halotroop.tconstruct.registry.EntityRegistry;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.container.Container;
 import net.minecraft.entity.player.PlayerEntity;

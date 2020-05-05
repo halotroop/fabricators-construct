@@ -26,16 +26,31 @@ package com.halotroop.tconstruct.registry;
 
 import static com.halotroop.tconstruct.registry.EverythingRegistry.*;
 
+import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.block.general.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GeneralRegistry {
 	static void registerAllGeneralBlocks() {
 		// GROUT
-		registerGeneralBlock("grout", new FallingBlock(Block.Settings.copy(Blocks.CLAY)));
+		Block grout = registerBlock("grout", new FallingBlock(Block.Settings.copy(Blocks.CLAY)), GENERAL_BLOCKS);
+		registerGeneralItem("grout", new BlockItem(grout, new Item.Settings().group(TConstruct.GENERAL_TAB)) {
+			@Override
+			public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+				tooltip.add(new TranslatableText("block.tconstruct.grout.tooltip"));
+			}
+		});
 		
 		// STATIONS
 		registerGeneralBlock("crafting_station", new CraftingStationBlock());
@@ -52,19 +67,30 @@ public class GeneralRegistry {
 		}
 		// MATERIAL STORAGE BLOCKS
 		for (String name : IterationLists.TC_GENERIC_MATERIALS) {
-			registerGeneralBlock(name + "_block", new Block(Block.Settings.copy(Blocks.DIAMOND_BLOCK)));
+			Block block = registerBlock(name + "_block", new Block(Block.Settings.copy(Blocks.DIAMOND_BLOCK)), GENERAL_BLOCKS);
+			registerGeneralItem(name + "block", new BlockItem(block, new Item.Settings().group(TConstruct.GENERAL_TAB)) {
+				@Override
+				public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+					tooltip.add(new TranslatableText("block.tconstruct.metal.tooltip"));
+				}
+			});
 		}
 	}
 	
 	static void registerAllGeneralItems() {
 		for (String material : IterationLists.TC_GEMS) {
 			registerGeneralItem(material, new Item(new Item.Settings()
-					.group(ItemGroupsRegistry.GENERAL.group)));
+					.group(TConstruct.GENERAL_TAB)));
 		}
 		for (String material : IterationLists.TC_METALS) {
 			for (String type : new String[] {"nugget", "ingot"})
 				registerGeneralItem(material + "_" + type, new Item(new Item.Settings()
-						.group(ItemGroupsRegistry.GENERAL.group)));
+						.group(TConstruct.GENERAL_TAB)));
 		}
+	}
+	
+	static void registerGeneralBlock(String name, Block entry) {
+		Block block = registerBlock(name, entry, GENERAL_BLOCKS);
+		registerGeneralItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.GENERAL_TAB)));
 	}
 }

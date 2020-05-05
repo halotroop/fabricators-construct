@@ -31,13 +31,13 @@
   "mixins": [
     "tconstruct.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": ">=0.10",
     "minecraft": "1.15.x"
   },
   "suggests": {
+    "cotton-resources": ">=1.5.1",
     "techreborn": "*",
     "rei": "*",
     "hwyla": "*"

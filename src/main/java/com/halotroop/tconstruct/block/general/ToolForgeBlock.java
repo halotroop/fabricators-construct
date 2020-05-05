@@ -25,12 +25,21 @@
 package com.halotroop.tconstruct.block.general;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockView;
 
-public class ToolForgeBlock extends Block {
+public class ToolForgeBlock extends ToolTableBlock implements Waterloggable {
 	public ToolForgeBlock(String material) {
 		super(Block.Settings.copy(Registry.BLOCK.get(new Identifier(material))));
+	}
+	
+	@Override
+	public BlockEntity createBlockEntity(BlockView view) {
+		return null;
 	}
 }

@@ -1,37 +1,34 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
-    {
-      "conditions": [
+    "conditions": [
         {
-          "pulseid": "tinker_gadgets",
-          "type": "tconstruct:pulse_loaded"
+            "type": "tconstruct:is_pulse_loaded",
+            "pulse_name": "TinkerGadgets"
         }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shaped",
-        "pattern": [
-          "#",
-          "X"
-        ],
-        "key": {
-          "#": [
+    ],
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "key": {
+        "A": [
             {
-              "item": "minecraft:coal"
+                "item": "minecraft:coal",
+                "data": 0
             },
             {
-              "item": "minecraft:charcoal"
+                "item": "minecraft:coal",
+                "data": 1
             }
-          ],
-          "X": {
-            "tag": "forge:rods/stone"
-          }
-        },
-        "result": {
-          "item": "tconstruct:stone_torch",
-          "count": 4
+        ],
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "rodStone"
         }
-      }
+    },
+    "result": {
+        "item": "tconstruct:stone_torch",
+        "count": 4,
+        "data": 0
     }
-  ]
 }

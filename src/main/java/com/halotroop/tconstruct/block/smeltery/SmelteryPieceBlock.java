@@ -24,9 +24,9 @@
 
 package com.halotroop.tconstruct.block.smeltery;
 
-import net.minecraft.block.Block;
+import com.halotroop.tconstruct.block.TConstructBlock;
 
-public class SmelteryPieceBlock extends Block {
+public class SmelteryPieceBlock extends TConstructBlock {
 	public SmelteryPieceBlock(Settings settings) {
 		super(settings);
 	}
