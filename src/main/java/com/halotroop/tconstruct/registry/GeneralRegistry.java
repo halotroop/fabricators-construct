@@ -35,22 +35,17 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class GeneralRegistry {
 	static void registerAllGeneralBlocks() {
-		// GROUT
-		Block grout = registerBlock("grout", new FallingBlock(Block.Settings.copy(Blocks.CLAY)));
-		registerGeneralItem("grout", new BlockItem(grout, new Item.Settings().group(TConstruct.GENERAL_TAB)) {
-			@Override
-			public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-				tooltip.add(new TranslatableText("block.tconstruct.grout.tooltip"));
-			}
-		});
 		
 		// STATIONS
 		registerGeneralBlock("crafting_station", new CraftingStationBlock());
@@ -83,14 +78,18 @@ public class GeneralRegistry {
 					.group(TConstruct.GENERAL_TAB)));
 		}
 		for (String material : IterationLists.TC_METALS) {
-			for (String type : new String[] {"nugget", "ingot"})
-				registerGeneralItem(material + "_" + type, new Item(new Item.Settings()
-						.group(TConstruct.GENERAL_TAB)));
+			for (String type : new String[] {"nugget", "ingot"}) {
+				if (Registry.ITEM.get(new Identifier("c", material + type)).equals(Items.AIR)) {
+					registerGeneralItem(material + "_" + type, new Item(new Item.Settings()
+							.group(TConstruct.GENERAL_TAB)));
+				}
+			}
 		}
 	}
 	
 	static void registerGeneralBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry);
-		registerGeneralItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.GENERAL_TAB)));
+		registerGeneralItem(name, new BlockItem(
+				registerBlock(name, entry),
+				new Item.Settings().group(TConstruct.GENERAL_TAB)));
 	}
 }

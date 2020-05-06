@@ -32,24 +32,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class EverythingRegistry {
-	static Map<String, Block> GENERAL_BLOCKS = new HashMap<>();
-	static Map<String, Block> SMELTERY_BLOCKS = new HashMap<>();
-	static Map<String, Block> GADGETS_BLOCKS = new HashMap<>();
-	
-	static Map<String, Item> GENERAL_ITEMS = new HashMap<>();
-	static Map<String, Item> SMELTERY_ITEMS = new HashMap<>();
-	static Map<String, Item> GADGETS_ITEMS = new HashMap<>();
-	
-	static final String[] // Useful for stone-type and other fancy blocks
-			block_types = new String[] {"", "slab", "stairs"},
-			stone_styles = new String[] {"", "cobbled", "smooth"},
-			stone_brick_styles = new String[] {
-					"", "cracked", "fancy", "square","road","triangle", "small", "tile", "inscribed"
-	};
 	
 	public static void registerAll() {
 		SoundRegistry.registerAll();

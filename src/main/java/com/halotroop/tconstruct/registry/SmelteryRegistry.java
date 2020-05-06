@@ -42,32 +42,6 @@ public class SmelteryRegistry {
 	static void registerAllSmelteryBlocks() {
 		// --Smeltery Blocks-- \\
 		
-		// SEARED GLASS
-		registerSmelteryBlock("seared_glass", new Block(Block.Settings.copy(Blocks.GLASS)));
-		
-		for (String block_type : block_types) {
-			// "SEARED STONE" + SLABS + STAIRS
-			for (String stone_style : stone_styles) {
-				registerSmelteryBlock(
-						// Ex: cobbled_seared_stone_stairs, smooth_seared_stone
-						(stone_style.equals("") ? "" : (stone_style + "_")) // Places an _ after if not null
-								+ "seared"
-								+ (block_type.equals("") ? "" : ("_" + block_type)) // Places an _ between if not null
-								+ "_stone",
-						new Block(Block.Settings.copy(Blocks.STONE))
-				);
-			}
-			// "SEARED BRICK(S)" + SLABS + STAIRS
-			for (String stone_brick_style : stone_brick_styles) {
-				registerSmelteryBlock(
-						// Ex: inscribed_brownstone_slab, cracked_brownstone
-						stone_brick_style + (stone_brick_style.equals("") ? "" : "_") // Places an _ after if not null
-								+ "seared_brick" +
-								(block_type.equals("") ? "s" : "_" ) + block_type,  // Places an s between if null or an _ if not
-						new Block(Block.Settings.copy(Blocks.STONE_BRICKS)));
-			}
-		}
-		
 		// SMELTERY PIECES
 		// TODO: Give each of these their own type!
 		registerSmelteryBlock("smeltery_controller", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));

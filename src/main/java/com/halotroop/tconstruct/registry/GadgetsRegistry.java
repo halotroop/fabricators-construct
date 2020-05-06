@@ -39,39 +39,39 @@ public class GadgetsRegistry {
 		registerGadgetsBlock("stone_torch", new StoneTorch(Block.Settings.copy(Blocks.TORCH)));
 		
 		// GADGETS MANY MANY BROWN BLOCKS
-		for (String block_type : block_types) {
-			String nullOrUnderscore = block_type.equals("") ? "" : ("_"); // places an _ in between if not null
-			
-			// "DRIED BRICKS" + SLABS + STAIRS
-			registerGadgetsBlock("dried_brick" + (block_type.equals("") ? "s" : ("_" + block_type)),
-					new Block(Block.Settings.copy(Blocks.STONE_BRICKS))
-			);
-			// "DRIED CLAY( BRICKS)" + SLABS + STAIRS
-			for (String brown_thing : new String[] {"dried_clay", "dried_clay_bricks"}) {
-				registerGadgetsBlock(brown_thing + nullOrUnderscore + block_type,
-						new Block(Block.Settings.copy(Blocks.STONE_BRICKS))
-				);
-			}
-			// "BROWNSTONE" + SLABS + STAIRS
-			for (String stone_style : stone_styles) {
-				registerGadgetsBlock(
-						// Ex: cobbled_seared_stone_stairs, smooth_seared_stone
-						(stone_style.equals("") ? "" : (stone_style + "_")) // Places an _ after if not null
-								+ "brownstone"
-								+ (block_type.equals("") ? "" : ("_" + block_type)), // Places an _ between if not null
-						new Block(Block.Settings.copy(Blocks.STONE))
-				);
-			}
-			// "BROWNSTONE BRICK(S)" + SLABS + STAIRS
-			for (String stone_brick_style : stone_brick_styles) {
-				registerGadgetsBlock(
-						// Ex: inscribed_brownstone_slab, cracked_brownstone
-						stone_brick_style + (stone_brick_style.equals("") ? "" : "_") // Places an _ after if not null
-								+ "brownstone_brick" +
-								(block_type.equals("") ? "s" : "_" ) + block_type,  // Places an s between if null or an _ if not
-						new Block(Block.Settings.copy(Blocks.STONE_BRICKS)));
-			}
-		}
+//		for (String block_type : block_types) {
+//			String nullOrUnderscore = block_type.equals("") ? "" : ("_"); // places an _ in between if not null
+//
+//			// "DRIED BRICKS" + SLABS + STAIRS
+//			registerGadgetsBlock("dried_brick" + (block_type.equals("") ? "s" : ("_" + block_type)),
+//					new Block(Block.Settings.copy(Blocks.STONE_BRICKS))
+//			);
+//			// "DRIED CLAY( BRICKS)" + SLABS + STAIRS
+//			for (String brown_thing : new String[] {"dried_clay", "dried_clay_bricks"}) {
+//				registerGadgetsBlock(brown_thing + nullOrUnderscore + block_type,
+//						new Block(Block.Settings.copy(Blocks.STONE_BRICKS))
+//				);
+//			}
+//			// "BROWNSTONE" + SLABS + STAIRS
+//			for (String stone_style : stone_styles) {
+//				registerGadgetsBlock(
+//						// Ex: cobbled_seared_stone_stairs, smooth_seared_stone
+//						(stone_style.equals("") ? "" : (stone_style + "_")) // Places an _ after if not null
+//								+ "brownstone"
+//								+ (block_type.equals("") ? "" : ("_" + block_type)), // Places an _ between if not null
+//						new Block(Block.Settings.copy(Blocks.STONE))
+//				);
+//			}
+//			// "BROWNSTONE BRICK(S)" + SLABS + STAIRS
+//			for (String stone_brick_style : stone_brick_styles) {
+//				registerGadgetsBlock(
+//						// Ex: inscribed_brownstone_slab, cracked_brownstone
+//						stone_brick_style + (stone_brick_style.equals("") ? "" : "_") // Places an _ after if not null
+//								+ "brownstone_brick" +
+//								(block_type.equals("") ? "s" : "_" ) + block_type,  // Places an s between if null or an _ if not
+//						new Block(Block.Settings.copy(Blocks.STONE_BRICKS)));
+//			}
+//		}
 	}
 	
 	static class StoneTorch extends TorchBlock {
@@ -86,7 +86,8 @@ public class GadgetsRegistry {
 	}
 	
 	static void registerGadgetsBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, GADGETS_BLOCKS);
-		registerGadgetsItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.GADGETS_TAB)));
+		registerGadgetsItem(name, new BlockItem(
+				registerBlock(name, entry),
+				new Item.Settings().group(TConstruct.GADGETS_TAB)));
 	}
 }

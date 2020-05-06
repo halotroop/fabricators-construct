@@ -25,6 +25,7 @@
 package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EverythingRegistry;
+import com.halotroop.tconstruct.registry.block.BlockRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -58,7 +59,7 @@ public class TConstruct implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// Register everything first!
-		EverythingRegistry.registerAll();
+		new BlockRegistry();
 		logger.info("Registry done!");
 	}
 	
