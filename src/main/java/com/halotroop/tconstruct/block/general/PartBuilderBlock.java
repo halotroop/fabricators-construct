@@ -24,13 +24,24 @@
 
 package com.halotroop.tconstruct.block.general;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Waterloggable;
+import com.halotroop.tconstruct.TConstruct;
+import com.halotroop.tconstruct.block.entity.PartBuilderBlockEntity;
+import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.DefaultedList;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class PartBuilderBlock extends ToolTableBlock implements Waterloggable {
 	public PartBuilderBlock() {
 		super(Block.Settings.copy(Blocks.CRAFTING_TABLE));
@@ -38,6 +49,36 @@ public class PartBuilderBlock extends ToolTableBlock implements Waterloggable {
 	
 	@Override
 	public BlockEntity createBlockEntity(BlockView view) {
-		return null;
+		return new PartBuilderBlockEntity();
+	}
+	
+	@Override
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+		if (!world.isClient)
+			ContainerProviderRegistry.INSTANCE.openContainer(TConstruct.makeID("part_builder"), player,
+					buf -> buf.writeBlockPos(pos));
+		return ActionResult.SUCCESS;
+	}
+	
+	@Override
+	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+		if (itemStack.hasCustomName()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof PartBuilderBlockEntity) {
+				((PartBuilderBlockEntity) blockEntity).setCustomName(itemStack.getName());
+			}
+		}
+	}
+	
+	@Override
+	public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+		if (state.getBlock() != newState.getBlock()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof PartBuilderBlockEntity) {
+				ItemScatterer.spawn(world, pos, (PartBuilderBlockEntity) blockEntity);
+				world.updateHorizontalAdjacent(pos, this);
+			}
+			super.onBlockRemoved(state, world, pos, newState, moved);
+		}
 	}
 }

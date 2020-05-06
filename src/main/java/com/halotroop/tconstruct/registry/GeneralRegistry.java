@@ -44,7 +44,7 @@ import java.util.List;
 public class GeneralRegistry {
 	static void registerAllGeneralBlocks() {
 		// GROUT
-		Block grout = registerBlock("grout", new FallingBlock(Block.Settings.copy(Blocks.CLAY)), GENERAL_BLOCKS);
+		Block grout = registerBlock("grout", new FallingBlock(Block.Settings.copy(Blocks.CLAY)));
 		registerGeneralItem("grout", new BlockItem(grout, new Item.Settings().group(TConstruct.GENERAL_TAB)) {
 			@Override
 			public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
@@ -67,7 +67,7 @@ public class GeneralRegistry {
 		}
 		// MATERIAL STORAGE BLOCKS
 		for (String name : IterationLists.TC_GENERIC_MATERIALS) {
-			Block block = registerBlock(name + "_block", new Block(Block.Settings.copy(Blocks.DIAMOND_BLOCK)), GENERAL_BLOCKS);
+			Block block = registerBlock(name + "_block", new Block(Block.Settings.copy(Blocks.DIAMOND_BLOCK)));
 			registerGeneralItem(name + "block", new BlockItem(block, new Item.Settings().group(TConstruct.GENERAL_TAB)) {
 				@Override
 				public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
@@ -90,7 +90,7 @@ public class GeneralRegistry {
 	}
 	
 	static void registerGeneralBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, GENERAL_BLOCKS);
+		Block block = registerBlock(name, entry);
 		registerGeneralItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.GENERAL_TAB)));
 	}
 }

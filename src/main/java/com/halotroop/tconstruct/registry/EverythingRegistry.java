@@ -27,7 +27,6 @@ package com.halotroop.tconstruct.registry;
 import com.halotroop.tconstruct.TConstruct;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -37,9 +36,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EverythingRegistry {
-	private static Map<String, Block> BLOCKS = new HashMap<>();
-	private static Map<String, Item> ITEMS = new HashMap<>();
-	
 	static Map<String, Block> GENERAL_BLOCKS = new HashMap<>();
 	static Map<String, Block> SMELTERY_BLOCKS = new HashMap<>();
 	static Map<String, Block> GADGETS_BLOCKS = new HashMap<>();
@@ -67,58 +63,47 @@ public class EverythingRegistry {
 		GadgetsRegistry.registerAllGadgetsBlocks();
 		GadgetsRegistry.registerAllGadgetsItems();
 		
-		BLOCKS.putAll(GENERAL_BLOCKS);
-		BLOCKS.putAll(SMELTERY_BLOCKS);
-		BLOCKS.putAll(GADGETS_BLOCKS);
-		
-		ITEMS.putAll(GENERAL_ITEMS);
-		ITEMS.putAll(SMELTERY_ITEMS);
-		ITEMS.putAll(GADGETS_ITEMS);
-		
 		EntityRegistry.registerAllBlockEntityTypes();
 		EntityRegistry.registerAllEntityTypes();
 	}
 	
 	// ---End of registration--- \\
 	
-	static Block registerBlock (String name, Block entry, Map<String, Block> list) {
+	static Block registerBlock (String name, Block entry) {
 		final Identifier id = TConstruct.makeID(name.toLowerCase());
 		if (Registry.BLOCK.get(id).equals(Blocks.AIR)) {
 			TConstruct.logger.debug("REGISTERING " + name);
-			Block block = Registry.register(Registry.BLOCK, id, entry);
-			list.put(name, block);
-			return block;
+			return Registry.register(Registry.BLOCK, id, entry);
 		}
-		else return null;
+		else return Blocks.AIR;
 	}
 	
 	public static Block getBlock(String name) {
-		return BLOCKS.get(name);
+		return Registry.BLOCK.get(TConstruct.makeID(name));
 	}
 	
 	// ~~~~~ ITEMS ~~~~~ \\
 	
 	static void registerGeneralItem(String name, Item entry) {
-		registerItem(name, entry, GENERAL_ITEMS);
+		registerItem(name, entry);
 	}
 	
 	static void registerSmelteryItem(String name, Item entry) {
-		registerItem(name, entry, SMELTERY_ITEMS);
+		registerItem(name, entry);
 	}
 	
 	static void registerGadgetsItem(String name, Item entry) {
-		registerItem(name, entry, GADGETS_ITEMS);
+		registerItem(name, entry);
 	}
 	
-	private static void registerItem(String name, Item entry, Map<String, Item> list) {
+	private static void registerItem(String name, Item entry) {
 		final Identifier id = TConstruct.makeID(name.toLowerCase());
 		if (Registry.ITEM.get(id).equals(Items.AIR)) {
 			Item item = Registry.register(Registry.ITEM, id, entry);
-			list.put(name, item);
 		}
 	}
 	
 	public static Item getItem(String name) {
-		return ITEMS.get(name);
+		return Registry.ITEM.get(TConstruct.makeID(name));
 	}
 }

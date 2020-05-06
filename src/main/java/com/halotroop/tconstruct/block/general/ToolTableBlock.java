@@ -70,16 +70,6 @@ public abstract class ToolTableBlock extends BlockWithEntity implements Waterlog
 	}
 	
 	@Override
-	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-		if (itemStack.hasCustomName()) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof CraftingStationBlockEntity) {
-				((CraftingStationBlockEntity) blockEntity).setCustomName(itemStack.getName());
-			}
-		}
-	}
-	
-	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
 		BlockPos blockPos = ctx.getBlockPos();
 		BlockState blockState = ctx.getWorld().getBlockState(blockPos);
@@ -140,18 +130,6 @@ public abstract class ToolTableBlock extends BlockWithEntity implements Waterlog
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(FACING, WATERLOGGED);
-	}
-	
-	@Override
-	public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-		if (state.getBlock() != newState.getBlock()) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof CraftingStationBlockEntity) {
-				ItemScatterer.spawn(world, pos, (CraftingStationBlockEntity) blockEntity);
-				world.updateHorizontalAdjacent(pos, this);
-			}
-			super.onBlockRemoved(state, world, pos, newState, moved);
-		}
 	}
 	
 	@Override

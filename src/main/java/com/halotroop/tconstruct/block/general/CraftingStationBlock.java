@@ -53,6 +53,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class CraftingStationBlock extends ToolTableBlock implements Waterloggable {
 	public CraftingStationBlock() {
 		super(Block.Settings.copy(Blocks.CRAFTING_TABLE));
@@ -69,5 +70,27 @@ public class CraftingStationBlock extends ToolTableBlock implements Waterloggabl
 			ContainerProviderRegistry.INSTANCE.openContainer(TConstruct.makeID("crafting_station"), player,
 					buf -> buf.writeBlockPos(pos));
 		return ActionResult.SUCCESS;
+	}
+	
+	@Override
+	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+		if (itemStack.hasCustomName()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof CraftingStationBlockEntity) {
+				((CraftingStationBlockEntity) blockEntity).setCustomName(itemStack.getName());
+			}
+		}
+	}
+	
+	@Override
+	public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+		if (state.getBlock() != newState.getBlock()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof CraftingStationBlockEntity) {
+				ItemScatterer.spawn(world, pos, (CraftingStationBlockEntity) blockEntity);
+				world.updateHorizontalAdjacent(pos, this);
+			}
+			super.onBlockRemoved(state, world, pos, newState, moved);
+		}
 	}
 }

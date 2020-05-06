@@ -92,7 +92,8 @@ public class SmelteryRegistry {
 	}
 	
 	static void registerSmelteryBlock(String name, Block entry) {
-		Block block = registerBlock(name, entry, SMELTERY_BLOCKS);
-		registerSmelteryItem(name, new BlockItem(block, new Item.Settings().group(TConstruct.SMELTERY_TAB)));
+		registerSmelteryItem(name, new BlockItem(
+				registerBlock(name, entry),
+				new Item.Settings().group(TConstruct.SMELTERY_TAB)));
 	}
 }
