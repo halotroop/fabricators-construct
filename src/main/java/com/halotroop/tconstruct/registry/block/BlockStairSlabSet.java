@@ -13,9 +13,9 @@ public class BlockStairSlabSet {
 	 * Output: Also dunamic blockstates and models for each
 	 */
 	public BlockStairSlabSet(String baseName, Block.Settings blockSettings, Item.Settings itemSettings) {
-		block = new TConBlock(baseName, new Block(blockSettings), itemSettings);
-		stair = new TConBlock(baseName + "_stairs", new StairsBlock(baseName, block.block.getDefaultState(), blockSettings), itemSettings);
-		slab  = new TConBlock(baseName + "_slab",   new SlabBlock(blockSettings), itemSettings);
+		this.block = new TConBlock(baseName, new Block(blockSettings), itemSettings);
+		this.stair = new TConBlock(baseName + "_stairs", new StairsBlock(baseName, this.block.block.getDefaultState(), blockSettings), itemSettings);
+		this.slab = new TConBlock(baseName + "_slab", new SlabBlock(blockSettings), itemSettings);
 	}
 	
 }

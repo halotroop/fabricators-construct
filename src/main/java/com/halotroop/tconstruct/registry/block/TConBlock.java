@@ -26,13 +26,15 @@ public class TConBlock {
 		
 		if (blockItemSettings != null && ItemRegistry.cottonCheck(name))
 			this.blockItem = (BlockItem) ItemRegistry.registerItem(name, new BlockItem(block, blockItemSettings));
-		else this.blockItem = (BlockItem) Registry.ITEM.get(new Identifier("c", name));
+		else
+			this.blockItem = (BlockItem) ItemRegistry.cotton(name);
 	}
 	
 	@Nullable
 	public BlockItem getBlockItem() {
 		return blockItem;
 	}
+
 	@Nullable
 	public ItemGroup getGroup() {
 		if (blockItem != null) {

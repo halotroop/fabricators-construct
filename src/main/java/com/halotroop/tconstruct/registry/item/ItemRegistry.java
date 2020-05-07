@@ -31,4 +31,8 @@ public class ItemRegistry {
 		return (FabricLoader.getInstance().isModLoaded("cotton-resources")
 				&& (Registry.ITEM.get(cotton).equals(Items.AIR)));
 	}
+
+	public static Item cotton(String name) {
+		return Registry.ITEM.get(new Identifier("c:"+name));
+	}
 }

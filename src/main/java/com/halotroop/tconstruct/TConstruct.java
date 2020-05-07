@@ -66,7 +66,7 @@ public class TConstruct implements ModInitializer {
 	public void onInitialize() {
 		RRPCallback.EVENT.register(a -> a.add(0, RESOURCE_PACK));
 		// Register everything first!
-		BlockRegistry.registerBlocks();
+		BlockRegistry.register();
 		ItemRegistry.registerItems();
 		logger.info("Registry done!");
 		RESOURCE_PACK.dump();
