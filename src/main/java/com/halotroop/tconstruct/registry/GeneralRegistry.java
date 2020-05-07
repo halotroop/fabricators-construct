@@ -44,6 +44,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+@Deprecated
 public class GeneralRegistry {
 	static void registerAllGeneralBlocks() {
 		

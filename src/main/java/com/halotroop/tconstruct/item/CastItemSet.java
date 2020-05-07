@@ -34,7 +34,7 @@ public class CastItemSet {
 			shovel_head, arrow_head, large_sword_blade, sword_blade, knife_blade, hand_guard, wide_guard, cross_guard,
 			binding, tough_binding, tool_rod, tough_tool_rod, bowlimb, plate, large_plate, pan;
 	
-	private boolean clay;
+	private final boolean clay;
 	
 	public CastItemSet(boolean clay) {
 		this.clay = clay;

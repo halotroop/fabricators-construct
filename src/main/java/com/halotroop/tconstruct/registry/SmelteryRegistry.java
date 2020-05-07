@@ -34,7 +34,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-
+@Deprecated
 public class SmelteryRegistry {
 	
 	static void registerAllSmelteryBlocks() {

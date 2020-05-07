@@ -29,6 +29,7 @@ import net.minecraft.util.Util;
 import java.util.Arrays;
 import java.util.HashSet;
 
+@Deprecated
 class IterationLists {
 	final static String[] VANILLA_METALS = new String[] {"iron", "gold"};
 	final static String[] VANILLA_GEMS = new String[] {"diamond", "emerald"};

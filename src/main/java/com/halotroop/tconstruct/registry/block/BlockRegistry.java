@@ -20,10 +20,9 @@ public class BlockRegistry {
 	private static final Item.Settings GENERAL_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.GENERAL_TAB);
 	private static final Item.Settings SMELTERY_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.GENERAL_TAB);
 	
-	public static TConBlock grout, stone_torch;
+	public static TConBlock grout, stone_torch, seared_glass;
 	public static DecorStones brownstone;
 	public static DecorStones seared_stone;
-	public static TConBlock seared_glass;
 	
 	private static boolean registered;
 	
@@ -42,6 +41,9 @@ public class BlockRegistry {
 			brownstone = new DecorStones(null, "brownstone", Block.Settings.copy(Blocks.STONE), GENERAL_TAB_GENERIC_SETTINGS);
 			seared_stone = new DecorStones("seared", "stone", Block.Settings.copy(Blocks.STONE), SMELTERY_TAB_GENERIC_SETTINGS);
 			seared_glass = new TConBlock("seared_glass", new Block(Block.Settings.copy(Blocks.GLASS)), SMELTERY_TAB_GENERIC_SETTINGS);
+			
+			// TODO: Tool tables
+			
 		} else TConstruct.logger.error("Tried to register blocks twice! Don't do that!");
 		registered = true;
 	}

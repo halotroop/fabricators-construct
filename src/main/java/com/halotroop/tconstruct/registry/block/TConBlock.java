@@ -8,8 +8,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-
 public class TConBlock {
 	public final Identifier id;
 	public final net.minecraft.block.Block block;

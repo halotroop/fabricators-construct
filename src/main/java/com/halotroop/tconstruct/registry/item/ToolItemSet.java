@@ -19,7 +19,7 @@ public class ToolItemSet {
 		JAGGED,
 		WRITABLE,
 		SLIMY,
-		TASTY;
+		TASTY
 	}
 	
 	
@@ -74,6 +74,6 @@ public class ToolItemSet {
 		ROD(),
 		LIMB(),
 		PLATE(),
-		PAN();
+		PAN()
 	}
 }
