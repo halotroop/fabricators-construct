@@ -14,7 +14,9 @@ public class BlockStairSlabSet {
 	 */
 	public BlockStairSlabSet(String baseName, Block.Settings blockSettings, Item.Settings itemSettings) {
 		this.block = new TConBlock(baseName, new Block(blockSettings), itemSettings);
-		this.stair = new TConBlock(baseName + "_stairs", new StairsBlock(baseName, this.block.block.getDefaultState(), blockSettings), itemSettings);
+		if (this.block.getBlock() != null) {
+			this.stair = new TConBlock(baseName + "_stairs", new StairsBlock(baseName, this.block.getBlock().getDefaultState(), blockSettings), itemSettings);
+		} else this.stair = null;
 		this.slab = new TConBlock(baseName + "_slab", new SlabBlock(blockSettings), itemSettings);
 	}
 	

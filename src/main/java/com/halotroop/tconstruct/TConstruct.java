@@ -24,7 +24,6 @@
 
 package com.halotroop.tconstruct;
 
-import com.halotroop.tconstruct.registry.EverythingRegistry;
 import com.halotroop.tconstruct.registry.block.BlockRegistry;
 import com.halotroop.tconstruct.registry.item.ItemRegistry;
 import net.devtech.arrp.api.RRPCallback;
@@ -45,18 +44,18 @@ public class TConstruct implements ModInitializer {
 	public static boolean itemsRegistered = false;
 	
 	public static final ItemGroup
-			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"), () ->
-			{return new ItemStack(EverythingRegistry.getItem("grout"));}),
-			TOOLS = FabricItemGroupBuilder.build(makeID("tools"),  () ->
-			{return new ItemStack(Items.ACACIA_PLANKS);}),
-			TOOL_PARTS_TAB = FabricItemGroupBuilder.build(makeID("tool_parts"), () ->
-			{return new ItemStack(Items.ACACIA_PLANKS);}),
-			SMELTERY_TAB = FabricItemGroupBuilder.build(makeID("smeltery"),() ->
-			{return new ItemStack(Items.ACACIA_PLANKS);}),
+			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"),
+			() -> {return new ItemStack(BlockRegistry.GROUT.getBlockItem());}),
+			TOOLS = FabricItemGroupBuilder.build(makeID("tools"),
+					() -> {return new ItemStack(Items.DIAMOND_AXE);}),
+			TOOL_PARTS_TAB = FabricItemGroupBuilder.build(makeID("tool_parts"),
+					() -> {return new ItemStack(Items.STICK);}),
+			SMELTERY_TAB = FabricItemGroupBuilder.build(makeID("smeltery"),
+					() -> {return new ItemStack(BlockRegistry.SEARED_STONE.smooth.block.getBlockItem());}),
 			WORLD = FabricItemGroupBuilder.build(makeID("world"), () ->
 			{return new ItemStack(Items.ACACIA_PLANKS);}),
-			GADGETS_TAB = FabricItemGroupBuilder.build(makeID("gadgets"), () ->
-			{return new ItemStack(Items.ACACIA_PLANKS);});
+			GADGETS_TAB = FabricItemGroupBuilder.build(makeID("gadgets"),
+					() -> {return new ItemStack(ItemRegistry.stone_rod);});
 	
 	// Add this to VM arguments to see debug logs
 	// -Dfabric.log.level=debug
