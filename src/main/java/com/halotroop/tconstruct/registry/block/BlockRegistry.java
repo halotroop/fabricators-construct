@@ -1,8 +1,8 @@
 package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
@@ -12,6 +12,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class BlockRegistry {
 				}
 			}, GENERAL_TAB_GENERIC_SETTINGS);
 			
-			stone_torch = new TConBlock("stone_torch", new StoneTorch(Block.Settings.copy(Blocks.TORCH)),
+			stone_torch = new TConBlock("stone_torch", new StoneTorch(),
 					new Item.Settings().group(TConstruct.GADGETS_TAB));
 			
 			brownstone = new DecorStones(null, "brownstone", Block.Settings.copy(Blocks.STONE), GENERAL_TAB_GENERIC_SETTINGS);
@@ -49,8 +51,15 @@ public class BlockRegistry {
 	}
 	
 	static class StoneTorch extends TorchBlock {
-		public StoneTorch(Settings settings) {
-			super(settings);
+		public StoneTorch() {
+			super(Block.Settings.copy(Blocks.STONE));
 		}
+	}
+	
+	// Returns true if the block with the given name is not registered in the cotton namespace.
+	public static boolean cottonCheck(String name) {
+		Identifier cotton = new Identifier("c", name);
+		return (!FabricLoader.getInstance().isModLoaded("cotton-resources")
+				|| (Registry.BLOCK.get(cotton).equals(Blocks.AIR)));
 	}
 }

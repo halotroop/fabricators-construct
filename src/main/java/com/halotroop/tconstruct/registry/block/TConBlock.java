@@ -10,33 +10,37 @@ import org.jetbrains.annotations.Nullable;
 
 public class TConBlock {
 	public final Identifier id;
-	public final net.minecraft.block.Block block;
-	@Nullable private BlockItem item;
+	public final Block block;
+	@Nullable private final BlockItem blockItem;
 	
 	/*
 	 * @Inputs name of block, settings for blockitem
 	 * @Outputs set of an Identifier, Block, and Item
 	 */
-	public TConBlock(String name, Block block, @Nullable Item.Settings settings) {
+	public TConBlock(String name, Block block, @Nullable Item.Settings blockItemSettings) {
 		TConstruct.logger.debug("Registering a block/item pair for " + name);
 		this.id = TConstruct.makeID(name);
-		this.block = Registry.register(Registry.BLOCK, getId(), block);
-		if (settings != null) {
-			this.item = (BlockItem) ItemRegistry.registerItem(name, new BlockItem(block, settings));
-		}
+		if (BlockRegistry.cottonCheck(name))
+			this.block = Registry.register(Registry.BLOCK, getId(), block);
+		else this.block = Registry.BLOCK.get(new Identifier("c", name));
+		
+		if (blockItemSettings != null && ItemRegistry.cottonCheck(name))
+			this.blockItem = (BlockItem) ItemRegistry.registerItem(name, new BlockItem(block, blockItemSettings));
+		else this.blockItem = (BlockItem) Registry.ITEM.get(new Identifier("c", name));
 	}
 	
 	@Nullable
-	public BlockItem getItem() {
-		return item;
+	public BlockItem getBlockItem() {
+		return blockItem;
 	}
 	@Nullable
 	public ItemGroup getGroup() {
-		if (item != null) {
-			return item.getGroup();
+		if (blockItem != null) {
+			return blockItem.getGroup();
 		}
 		else return null;
 	}
+	
 	@Nullable
 	public Block getBlock() {
 		return block;
