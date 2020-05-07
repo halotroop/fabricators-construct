@@ -43,9 +43,6 @@ public class EverythingRegistry {
 		SmelteryRegistry.registerAllSmelteryBlocks();
 		SmelteryRegistry.registerAllSmelteryItems();
 		
-		GadgetsRegistry.registerAllGadgetsBlocks();
-		GadgetsRegistry.registerAllGadgetsItems();
-		
 		EntityRegistry.registerAllBlockEntityTypes();
 		EntityRegistry.registerAllEntityTypes();
 	}

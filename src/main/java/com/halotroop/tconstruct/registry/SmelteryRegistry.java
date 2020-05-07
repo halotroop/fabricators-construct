@@ -28,11 +28,9 @@ import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.block.smeltery.SmelteryPieceBlock;
 import static com.halotroop.tconstruct.registry.EverythingRegistry.*;
 
-import com.halotroop.tconstruct.item.CastItem;
-import com.halotroop.tconstruct.item.TinkersToolItem;
+import com.halotroop.tconstruct.item.CastItemSet;
 import com.halotroop.tconstruct.item.TinkersToolPartItem;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -57,12 +55,6 @@ public class SmelteryRegistry {
 	}
 	
 	static void registerAllSmelteryItems() {
-		registerSmelteryItem("blank_cast", new CastItem(false));
-		for (TinkersToolPartItem.ToolPart part : TinkersToolPartItem.ToolPart.values()) {
-			String name = part.name().toLowerCase() + "_cast";
-			registerSmelteryItem(name, new CastItem(false));
-			registerSmelteryItem("clay_" + name, new CastItem(true));
-		}
 	}
 	
 	static void registerSmelteryBlock(String name, Block entry) {

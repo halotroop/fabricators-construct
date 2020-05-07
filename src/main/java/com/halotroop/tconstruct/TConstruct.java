@@ -26,6 +26,8 @@ package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EverythingRegistry;
 import com.halotroop.tconstruct.registry.block.BlockRegistry;
+import com.halotroop.tconstruct.registry.item.ItemRegistry;
+import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -39,7 +41,8 @@ import org.apache.logging.log4j.Logger;
 public class TConstruct implements ModInitializer {
 	public static final String MODID = "tconstruct";
 	
-	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create("tconstruct:tcon");
+	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create("tconstruct");
+	public static boolean itemsRegistered = false;
 	
 	public static final ItemGroup
 			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"), () ->
@@ -61,9 +64,12 @@ public class TConstruct implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		RRPCallback.EVENT.register(a -> a.add(0, RESOURCE_PACK));
 		// Register everything first!
-		new BlockRegistry();
+		BlockRegistry.registerBlocks();
+		ItemRegistry.registerItems();
 		logger.info("Registry done!");
+		RESOURCE_PACK.dump();
 	}
 	
 	public static Identifier makeID(String name) {

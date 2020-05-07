@@ -1,9 +1,5 @@
 package com.halotroop.tconstruct.registry.block;
-
-import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.block.StairsBlock;
-import net.devtech.arrp.json.blockstate.*;
-import net.devtech.arrp.json.models.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.item.Item;

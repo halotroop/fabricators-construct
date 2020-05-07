@@ -1,6 +1,7 @@
 package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
+import com.halotroop.tconstruct.registry.item.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -23,7 +24,7 @@ public class TConBlock {
 		this.id = TConstruct.makeID(name);
 		this.block = Registry.register(Registry.BLOCK, getId(), block);
 		if (settings != null) {
-			this.item = Registry.register(Registry.ITEM, getId(), new BlockItem(block, settings));
+			this.item = (BlockItem) ItemRegistry.registerItem(name, new BlockItem(block, settings));
 		}
 	}
 	
