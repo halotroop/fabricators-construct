@@ -35,7 +35,7 @@ public class BlockRegistry {
 			brownstone = new DecorStones(null, "brownstone", Block.Settings.copy(Blocks.STONE), GENERAL_TAB_GENERIC_SETTINGS);
 			seared_stone = new DecorStones("seared", "stone", Block.Settings.copy(Blocks.STONE), SMELTERY_TAB_GENERIC_SETTINGS);
 			seared_glass = new TConBlock("seared_glass", new Block(Block.Settings.copy(Blocks.GLASS)), SMELTERY_TAB_GENERIC_SETTINGS);
-		} else TConstruct.logger.error("Tried to register blocks twice! What are you a masochist?!");
+		} else TConstruct.logger.error("Tried to register blocks twice! Don't do that!");
 		registered = true;
 	}
 }

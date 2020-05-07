@@ -8,8 +8,8 @@ public class DecorStones {
 	public final BlockStairSlabSet SMOOTH, COBBLED, CRACKED, FANCY, SQUARE, ROAD, TRIANGLE, SMALL, TILE, INSCRIBED;
 	
 	public DecorStones(@Nullable String prefix, String baseName, Block.Settings blockSettings, Item.Settings itemSettings) {
-		String fixedPrefix = (prefix != null ? prefix.toLowerCase() + "_" : "");
-		String fixedSuffix = "_" + baseName;
+		String fixedPrefix = (prefix != null) ? prefix+"_" : "";
+		String fixedSuffix = "_" + baseName.toLowerCase();
 		
 		SMOOTH     = new BlockStairSlabSet(fixedPrefix + "smooth"    + fixedSuffix, blockSettings, itemSettings);
 		COBBLED    = new BlockStairSlabSet(fixedPrefix + "cobbled"   + fixedSuffix, blockSettings, itemSettings);

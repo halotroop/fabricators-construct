@@ -26,6 +26,7 @@ package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EverythingRegistry;
 import com.halotroop.tconstruct.registry.block.BlockRegistry;
+import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -37,6 +38,8 @@ import org.apache.logging.log4j.Logger;
 
 public class TConstruct implements ModInitializer {
 	public static final String MODID = "tconstruct";
+	
+	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create("tconstruct:tcon");
 	
 	public static final ItemGroup
 			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"), () ->

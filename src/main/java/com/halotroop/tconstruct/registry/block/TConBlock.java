@@ -1,15 +1,13 @@
 package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
-import net.devtech.rrp.api.RuntimeResourcePack;
-import net.devtech.rrp.util.BlockModelJsonBuilder;
-import net.devtech.rrp.util.BlockStateJsonBuilder;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
 
 public class TConBlock {
 	public final Identifier id;
