@@ -25,9 +25,8 @@
 package com.halotroop.tconstruct.item;
 
 import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.item.ItemRegistry;
+import com.halotroop.tconstruct.registry.block.TConRegistry;
 import net.minecraft.item.Item;
-import org.jetbrains.annotations.Nullable;
 
 public class CastItemSet {
 	public final Item sign_plate, axe_head, broad_axe_head, excavator_head, pickaxe_head, hammer_head, scythe_kama,
@@ -64,7 +63,7 @@ public class CastItemSet {
 	}
 	
 	private Item register(String type) {
-		return ItemRegistry.registerItem( (clay ? "clay_" : "") + type + "_cast", new CastItem(this.clay));
+		return TConRegistry.registerItem( (clay ? "clay_" : "") + type + "_cast", new CastItem(this.clay));
 	}
 	
 	private static class CastItem extends Item {

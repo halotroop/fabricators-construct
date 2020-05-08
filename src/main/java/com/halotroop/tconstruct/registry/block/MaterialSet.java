@@ -2,13 +2,11 @@ package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.fluid.MoltenMaterialFluid;
-import com.halotroop.tconstruct.registry.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import org.jetbrains.annotations.NotNull;
@@ -31,19 +29,18 @@ public class MaterialSet {
 		this.block = new BlockItemPair(baseName + "_block", storageBlock, blockItemSettings);
 		if (!type.equals(Type.ALLOY) && oreBlock != null) {
 			this.ore = new BlockItemPair(baseName + "_ore", oreBlock, blockItemSettings);
-		}
-		else {
+		} else {
 			this.ore = null;
 		}
 		this.molten = new MoltenMaterialFluid(baseName, TConstruct.GENERAL_TAB);
 		
 		String rawName = baseName + type.rawSuffix;
-		if (ItemRegistry.cottonCheck(rawName)) this.rawItem = ItemRegistry.registerItem(rawName, rawItem);
-		else this.rawItem = ItemRegistry.cottonItem(rawName);
+		if (TConRegistry.cottonItemCheck(rawName)) this.rawItem = TConRegistry.registerItem(rawName, rawItem);
+		else this.rawItem = TConRegistry.cottonItem(rawName);
 		
 		String brokenName = baseName + type.brokenSuffix;
-		if (BlockRegistry.cottonCheck(brokenName)) this.brokenItem = ItemRegistry.registerItem(brokenName, brokenItem);
-		else this.brokenItem = ItemRegistry.cottonItem(brokenName);
+		if (TConRegistry.cottonBlockCheck(brokenName)) this.brokenItem = TConRegistry.registerItem(brokenName, brokenItem);
+		else this.brokenItem = TConRegistry.cottonItem(brokenName);
 	}
 	
 	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, // Block stuff
@@ -69,22 +66,20 @@ public class MaterialSet {
 	}
 	
 	public Block oreBlock() {
-		if (ore != null)
-		return ore.block;
+		if (ore != null) return ore.block;
 		else return Blocks.AIR;
 	}
 	
 	public Item oreBlockItem() {
-		if (ore != null)
-			return ore.blockItem;
+		if (ore != null) return ore.blockItem;
 		else return Items.AIR;
 	}
 
 	enum Type {
 		GEM("", "_shard"), METAL("_ingot", "_nugget"), ALLOY("_ingot", "_nugget");
 
-		public String rawSuffix;
-		public String brokenSuffix;
+		public final String rawSuffix;
+		public final String brokenSuffix;
 
 		Type(String rawSuffix, String brokenSuffix) {
 			this.rawSuffix = rawSuffix;

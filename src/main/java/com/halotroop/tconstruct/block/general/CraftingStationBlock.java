@@ -53,6 +53,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+// TODO: Create a dynamic resource generator
 @SuppressWarnings("deprecation")
 public class CraftingStationBlock extends ToolTableBlock implements Waterloggable {
 	public CraftingStationBlock() {

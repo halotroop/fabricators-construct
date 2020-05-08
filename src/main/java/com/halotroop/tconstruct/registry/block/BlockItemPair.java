@@ -1,7 +1,6 @@
 package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.item.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -22,13 +21,13 @@ public class BlockItemPair {
 		TConstruct.logger.debug("Registering a block/item pair for " + name);
 		this.id = TConstruct.makeID(name);
 		
-		if (BlockRegistry.cottonCheck(name))
+		if (TConRegistry.cottonBlockCheck(name))
 			this.block = Registry.register(Registry.BLOCK, id, block);
-		else this.block = Registry.BLOCK.get(new Identifier("c", name));
+		else this.block = TConRegistry.cottonBlock(name);
 		
-		if (ItemRegistry.cottonCheck(name))
-			this.blockItem = (BlockItem) ItemRegistry.registerItem(name, new BlockItem(block, blockItemSettings));
-		else this.blockItem = (BlockItem) ItemRegistry.cottonItem(name);
+		if (TConRegistry.cottonItemCheck(name))
+			this.blockItem = (BlockItem) TConRegistry.registerItem(name, new BlockItem(block, blockItemSettings));
+		else this.blockItem = (BlockItem) TConRegistry.cottonItem(name);
 	}
 	
 	@Nullable

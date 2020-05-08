@@ -26,26 +26,23 @@ package com.halotroop.tconstruct.registry;
 
 import com.halotroop.tconstruct.block.entity.CraftingStationBlockEntity;
 import com.halotroop.tconstruct.block.entity.PartBuilderBlockEntity;
+import com.halotroop.tconstruct.registry.block.TConRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
 	public static BlockEntityType<CraftingStationBlockEntity> CRAFTING_STATION_BLOCK_ENTITY;
 	public static BlockEntityType<PartBuilderBlockEntity> PART_BUILDER_BLOCK_ENTITY;
-	
-	static void registerAllBlockEntityTypes() {
+	// TODO: Replace these after tooltables are added.
+	public static void registerAllBlockEntityTypes() {
 		CRAFTING_STATION_BLOCK_ENTITY = BlockEntityType.Builder.create(CraftingStationBlockEntity::new,
-				EverythingRegistry.getBlock("crafting_station")).build(null);
+				TConRegistry.CRAFTING_STATION.allBlocks).build(null);
 		PART_BUILDER_BLOCK_ENTITY = BlockEntityType.Builder.create(PartBuilderBlockEntity::new,
-				EverythingRegistry.getBlock("oak_part_builder"),
-				EverythingRegistry.getBlock("birch_part_builder"),
-				EverythingRegistry.getBlock("dark_oak_part_builder"),
-				EverythingRegistry.getBlock("jungle_part_builder"),
-				EverythingRegistry.getBlock("acacia_part_builder")
-		).build(null);
+				TConRegistry.PART_BUILDER.allBlocks).build(null);
 	}
 	
-	static void registerAllEntityTypes() {
+	public static void registerAllEntityTypes() {
 		// TODO: Slimes
 	}
 }

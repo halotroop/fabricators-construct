@@ -3,8 +3,8 @@ package com.halotroop.tconstruct.registry.item;
 import com.halotroop.tconstruct.item.CastItemSet;
 import net.minecraft.item.Item;
 
+// TODO: Finish this.
 public class ToolItemSet {
-	
 	public Item raw_item, broken_item;
 	
 	// TODO: Add tools with their own classes
@@ -61,7 +61,7 @@ public class ToolItemSet {
 		LARGE_PLATE(ToolPartSlot.PLATE),
 		PAN(ToolPartSlot.PAN);
 		
-		ToolPartSlot slot;
+		final ToolPartSlot slot;
 		ToolPart(ToolPartSlot slot) {
 			this.slot = slot;
 		}
