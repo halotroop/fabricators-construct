@@ -1,4 +1,4 @@
-package com.halotroop.tconstruct.registry.block;
+package com.halotroop.tconstruct.registry;
 
 import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.block.general.CraftingStationBlock;
@@ -6,6 +6,10 @@ import com.halotroop.tconstruct.block.general.PartBuilderBlock;
 import com.halotroop.tconstruct.block.general.StencilTableBlock;
 import com.halotroop.tconstruct.block.smeltery.SmelteryPieceBlock;
 import com.halotroop.tconstruct.item.CastItemSet;
+import com.halotroop.tconstruct.registry.block.BlockItemPair;
+import com.halotroop.tconstruct.registry.block.DecorStones;
+import com.halotroop.tconstruct.registry.block.MaterialSet;
+import com.halotroop.tconstruct.registry.block.WoodenSet;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;

@@ -25,7 +25,7 @@
 package com.halotroop.tconstruct.item;
 
 import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.block.TConRegistry;
+import com.halotroop.tconstruct.registry.TConRegistry;
 import net.minecraft.item.Item;
 
 public class CastItemSet {

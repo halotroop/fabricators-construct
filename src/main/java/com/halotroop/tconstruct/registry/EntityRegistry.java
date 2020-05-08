@@ -26,10 +26,7 @@ package com.halotroop.tconstruct.registry;
 
 import com.halotroop.tconstruct.block.entity.CraftingStationBlockEntity;
 import com.halotroop.tconstruct.block.entity.PartBuilderBlockEntity;
-import com.halotroop.tconstruct.registry.block.TConRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
 	public static BlockEntityType<CraftingStationBlockEntity> CRAFTING_STATION_BLOCK_ENTITY;

@@ -26,7 +26,7 @@ package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EntityRegistry;
 import com.halotroop.tconstruct.registry.SoundRegistry;
-import com.halotroop.tconstruct.registry.block.TConRegistry;
+import com.halotroop.tconstruct.registry.TConRegistry;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;

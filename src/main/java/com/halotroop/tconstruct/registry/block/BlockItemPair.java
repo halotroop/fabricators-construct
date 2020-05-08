@@ -1,6 +1,7 @@
 package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
+import com.halotroop.tconstruct.registry.TConRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;

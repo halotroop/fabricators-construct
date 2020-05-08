@@ -2,6 +2,7 @@ package com.halotroop.tconstruct.registry.block;
 
 import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.fluid.MoltenMaterialFluid;
+import com.halotroop.tconstruct.registry.TConRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -75,7 +76,7 @@ public class MaterialSet {
 		else return Items.AIR;
 	}
 
-	enum Type {
+	public enum Type {
 		GEM("", "_shard"), METAL("_ingot", "_nugget"), ALLOY("_ingot", "_nugget");
 
 		public final String rawSuffix;
