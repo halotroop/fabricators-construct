@@ -38,23 +38,9 @@ import net.minecraft.item.Item;
 public class SmelteryRegistry {
 	
 	static void registerAllSmelteryBlocks() {
-		// --Smeltery Blocks-- \\
+		
 		
 		// SMELTERY PIECES
-		// TODO: Give each of these their own type!
-		registerSmelteryBlock("smeltery_controller", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("seared_tank", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("seared_gauge", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("seared_faucet", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("casting_channel", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("casting_table", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("casting_basin", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("seared_drain", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("seared_furnace_controller", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-		registerSmelteryBlock("tinker_tank_controller", new SmelteryPieceBlock(Block.Settings.of(Material.STONE)));
-	}
-	
-	static void registerAllSmelteryItems() {
 	}
 	
 	static void registerSmelteryBlock(String name, Block entry) {

@@ -37,11 +37,7 @@ public class EverythingRegistry {
 	public static void registerAll() {
 		SoundRegistry.registerAll();
 		
-		GeneralRegistry.registerAllGeneralBlocks();
-		GeneralRegistry.registerAllGeneralItems();
-		
 		SmelteryRegistry.registerAllSmelteryBlocks();
-		SmelteryRegistry.registerAllSmelteryItems();
 		
 		EntityRegistry.registerAllBlockEntityTypes();
 		EntityRegistry.registerAllEntityTypes();

@@ -17,10 +17,6 @@ repositories {
 		url = 'https://jitpack.io/'
 	}
 	maven {
-		name = "BuildCraft"
-		url = "https://mod-buildcraft.com/maven"
-	}
-	maven {
 		name = "Cotton"
 		url = "https://server.bbkr.space/artifactory/libs-release"
 	}
@@ -42,7 +38,8 @@ dependencies {
 	include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}"
 
 	modCompile "net.devtech:arrp:0.1.1"
-	modImplementation "alexiil.mc.lib:libblockattributes-all:${project.lba_version}"
+	modImplementation "io.github.cottonmc:UniversalComponents:${project.univ_comp_version}"
+	include "io.github.cottonmc:UniversalComponents:${project.univ_comp_version}"
 
 //	modImplementation "com.github.shedaniel:improved-stations:0d80fc9988" // 1.2.5-1.15
 

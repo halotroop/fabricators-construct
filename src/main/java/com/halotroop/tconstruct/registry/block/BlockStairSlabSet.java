@@ -5,7 +5,7 @@ import net.minecraft.block.SlabBlock;
 import net.minecraft.item.Item;
 
 public class BlockStairSlabSet {
-	public final TConBlock block, stair, slab;
+	public final BlockItemPair block, stair, slab;
 	
 	/*
 	 * Inputs: base name for block, slab, and stairs, BLock Settings for all three, and Item settings for all three
@@ -13,11 +13,8 @@ public class BlockStairSlabSet {
 	 * Output: Also dunamic blockstates and models for each
 	 */
 	public BlockStairSlabSet(String baseName, Block.Settings blockSettings, Item.Settings itemSettings) {
-		this.block = new TConBlock(baseName, new Block(blockSettings), itemSettings);
-		if (this.block.getBlock() != null) {
-			this.stair = new TConBlock(baseName + "_stairs", new StairsBlock(baseName, this.block.getBlock().getDefaultState(), blockSettings), itemSettings);
-		} else this.stair = null;
-		this.slab = new TConBlock(baseName + "_slab", new SlabBlock(blockSettings), itemSettings);
+		this.block = new BlockItemPair(baseName, new Block(blockSettings), itemSettings);
+		this.stair = new BlockItemPair(baseName + "_stairs", new StairsBlock(baseName, this.block.block.getDefaultState(), blockSettings), itemSettings);
+		this.slab = new BlockItemPair(baseName + "_slab", new SlabBlock(blockSettings), itemSettings);
 	}
-	
 }

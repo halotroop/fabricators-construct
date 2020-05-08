@@ -9,19 +9,20 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
-	public static CastItemSet casts, clay_casts;
-	public static Item stone_rod;
-	private static boolean registered;
+	public static final Item.Settings GENERAL_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.GENERAL_TAB);
+	public static final Item.Settings SMELTERY_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.GENERAL_TAB);
+	public static final Item.Settings TOOLS_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.TOOLS_TAB);
+	public static final Item.Settings TOOL_PARTS_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.TOOL_PARTS_TAB);
+	public static final Item.Settings WORLD_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.WORLD_TAB);
+	public static final Item.Settings GADGETS_TAB_GENERIC_SETTINGS =
+			new Item.Settings().group(TConstruct.GADGETS_TAB);
 	
-	public static void registerItems() {
-		if (!registered) {
-			stone_rod = registerItem("stone_stick", new Item(new Item.Settings().group(TConstruct.GADGETS_TAB)));
-			casts = new CastItemSet(false);
-			clay_casts = new CastItemSet(true);
-			
-		} else TConstruct.logger.error("Tried to register items twice! Don't do that!");
-		registered = true;
-	}
+	private static boolean registered;
 	
 	public static Item registerItem(String name, Item item) {
 		return Registry.register(Registry.ITEM, TConstruct.makeID(name), item);
@@ -34,7 +35,7 @@ public class ItemRegistry {
 				&& (Registry.ITEM.get(cotton).equals(Items.AIR)));
 	}
 
-	public static Item cotton(String name) {
+	public static Item cottonItem(String name) {
 		return Registry.ITEM.get(new Identifier("c:"+name));
 	}
 }
