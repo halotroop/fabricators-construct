@@ -24,15 +24,11 @@
 
 package com.halotroop.tconstruct;
 
-import com.halotroop.tconstruct.item.CastItemSet;
 import com.halotroop.tconstruct.registry.block.BlockRegistry;
-import com.halotroop.tconstruct.registry.item.ItemRegistry;
-import jdk.nashorn.internal.ir.Block;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;

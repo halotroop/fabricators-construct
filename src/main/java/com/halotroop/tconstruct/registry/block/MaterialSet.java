@@ -9,8 +9,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,17 +21,23 @@ import java.util.Random;
 public class MaterialSet {
 	// TODO: Fluids!
 	public final Item rawItem, brokenItem;
-	public final BlockItemPair ore, block;
+	@Nullable private final BlockItemPair ore;
+	public final BlockItemPair block;
 	public final Fluid molten;
 	
 	// The most customizable way to create a set, but good god does it take a lot of big parameters!
-	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, @NotNull OreBlock oreBlock, // Block stuff
+	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, @Nullable OreBlock oreBlock, // Block stuff
 	                   @NotNull Item rawItem, @NotNull Item brokenItem, // Item stuff
 	                   Item.Settings blockItemSettings, Type type) { // General stuff
 		TConstruct.logger.debug("Registering material set for " + baseName);
 		// BlockItemPair will do its own cottonCheck.
 		this.block = new BlockItemPair(baseName + "_block", storageBlock, blockItemSettings);
-		this.ore = new BlockItemPair(baseName + "_ore", oreBlock, blockItemSettings);
+		if (!type.equals(Type.ALLOY) && oreBlock != null) {
+			this.ore = new BlockItemPair(baseName + "_ore", oreBlock, blockItemSettings);
+		}
+		else {
+			this.ore = null;
+		}
 		this.molten = new MoltenMaterialFluid(baseName, TConstruct.GENERAL_TAB);
 		
 		String rawName = baseName + type.rawSuffix;
@@ -62,9 +70,21 @@ public class MaterialSet {
 		this(baseName, new Block(blockSettings), itemSettings, new Item(itemSettings), new Item(itemSettings),
 				oreExperience, miningLevel, materialType);
 	}
+	
+	public Block oreBlock() {
+		if (ore != null)
+		return ore.block;
+		else return Blocks.AIR;
+	}
+	
+	public Item oreBlockItem() {
+		if (ore != null)
+			return ore.blockItem;
+		else return Items.AIR;
+	}
 
 	enum Type {
-		GEM("", "_shard"), METAL("_ingot", "_nugget");
+		GEM("", "_shard"), METAL("_ingot", "_nugget"), ALLOY("_ingot", "_nugget");
 
 		public String rawSuffix;
 		public String brokenSuffix;

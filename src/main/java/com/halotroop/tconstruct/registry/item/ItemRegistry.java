@@ -12,7 +12,7 @@ public class ItemRegistry {
 	public static final Item.Settings GENERAL_TAB_GENERIC_SETTINGS =
 			new Item.Settings().group(TConstruct.GENERAL_TAB);
 	public static final Item.Settings SMELTERY_TAB_GENERIC_SETTINGS =
-			new Item.Settings().group(TConstruct.GENERAL_TAB);
+			new Item.Settings().group(TConstruct.SMELTERY_TAB);
 	public static final Item.Settings TOOLS_TAB_GENERIC_SETTINGS =
 			new Item.Settings().group(TConstruct.TOOLS_TAB);
 	public static final Item.Settings TOOL_PARTS_TAB_GENERIC_SETTINGS =
@@ -21,8 +21,6 @@ public class ItemRegistry {
 			new Item.Settings().group(TConstruct.WORLD_TAB);
 	public static final Item.Settings GADGETS_TAB_GENERIC_SETTINGS =
 			new Item.Settings().group(TConstruct.GADGETS_TAB);
-	
-	private static boolean registered;
 	
 	public static Item registerItem(String name, Item item) {
 		return Registry.register(Registry.ITEM, TConstruct.makeID(name), item);

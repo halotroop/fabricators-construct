@@ -46,7 +46,7 @@ public class BlockRegistry extends ItemRegistry {
 					0, 0, MaterialSet.Type.METAL);
 	public static final MaterialSet MANYULLYN =
 			new MaterialSet("manyullyn", Block.Settings.of(Material.METAL), GENERAL_TAB_GENERIC_SETTINGS,
-					0, 0, MaterialSet.Type.METAL);
+					0, 0, MaterialSet.Type.ALLOY);
 	
 	// --Smeltery Blocks-- \\
 	// TODO: Give each of these their own type!
