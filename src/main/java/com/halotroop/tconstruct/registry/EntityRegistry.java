@@ -34,9 +34,9 @@ public class EntityRegistry {
 	// TODO: Replace these after tooltables are added.
 	public static void registerAllBlockEntityTypes() {
 		CRAFTING_STATION_BLOCK_ENTITY = BlockEntityType.Builder.create(CraftingStationBlockEntity::new,
-				TConRegistry.CRAFTING_STATION.allBlocks).build(null);
+				RegistryModImpl.CRAFTING_STATION.allBlocks).build(null);
 		PART_BUILDER_BLOCK_ENTITY = BlockEntityType.Builder.create(PartBuilderBlockEntity::new,
-				TConRegistry.PART_BUILDER.allBlocks).build(null);
+				RegistryModImpl.PART_BUILDER.allBlocks).build(null);
 	}
 	
 	public static void registerAllEntityTypes() {

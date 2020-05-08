@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.registry.block;
+package com.halotroop.registry.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

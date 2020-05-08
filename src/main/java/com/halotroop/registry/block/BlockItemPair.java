@@ -22,10 +22,9 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.registry.block;
+package com.halotroop.registry.block;
 
-import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.TConRegistry;
+import com.halotroop.registry.RegistryMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -38,18 +37,19 @@ public class BlockItemPair {
 	@NotNull public final Block block;
 	@NotNull public final BlockItem blockItem;
 	
+	// This is NOT for creating Blocks without BlockItems! That would be pointless!
 	// Creates an object containing both a Block and a BlockItem, so they can both be referenced from a larger container
 	public BlockItemPair(@NotNull String name, @NotNull Block block, @NotNull Item.Settings blockItemSettings) {
-		TConstruct.logger.debug("Registering a block/item pair for " + name);
-		this.id = TConstruct.makeID(name);
+		RegistryMod.logger.debug("Registering a block/item pair for " + name);
+		this.id = RegistryMod.makeID(name);
 		
-		if (TConRegistry.cottonBlockCheck(name))
-			this.block = Registry.register(Registry.BLOCK, id, block);
-		else this.block = TConRegistry.cottonBlock(name);
+		if (RegistryMod.cottonBlockCheck(name))
+			this.block = Registry.register(Registry.BLOCK, this.id, block);
+		else this.block = RegistryMod.cottonBlock(name);
 		
-		if (TConRegistry.cottonItemCheck(name))
-			this.blockItem = (BlockItem) TConRegistry.registerItem(name, new BlockItem(block, blockItemSettings));
-		else this.blockItem = (BlockItem) TConRegistry.cottonItem(name);
+		if (RegistryMod.cottonItemCheck(name))
+			this.blockItem = (BlockItem) RegistryMod.registerItem(name, new BlockItem(block, blockItemSettings));
+		else this.blockItem = (BlockItem) RegistryMod.cottonItem(name);
 	}
 	
 	@Nullable

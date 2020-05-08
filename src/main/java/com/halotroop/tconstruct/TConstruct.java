@@ -26,7 +26,7 @@ package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EntityRegistry;
 import com.halotroop.tconstruct.registry.SoundRegistry;
-import com.halotroop.tconstruct.registry.TConRegistry;
+import com.halotroop.tconstruct.registry.RegistryModImpl;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
@@ -44,17 +44,17 @@ public class TConstruct implements ModInitializer {
 	
 	public static final ItemGroup
 			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"),
-			() -> {return new ItemStack(TConRegistry.GROUT.blockItem);}),
+			() -> {return new ItemStack(RegistryModImpl.GROUT.blockItem);}),
 			TOOLS_TAB = FabricItemGroupBuilder.build(makeID("tools"),
 					() -> {return new ItemStack(Items.DIAMOND_AXE);}),
 			TOOL_PARTS_TAB = FabricItemGroupBuilder.build(makeID("tool_parts"),
 					() -> {return new ItemStack(Items.STICK);}),
 			SMELTERY_TAB = FabricItemGroupBuilder.build(makeID("smeltery"),
-					() -> {return new ItemStack(TConRegistry.SEARED_STONE.smooth.block.blockItem);}),
+					() -> {return new ItemStack(RegistryModImpl.SEARED_STONE.smooth.block.blockItem);}),
 			WORLD_TAB = FabricItemGroupBuilder.build(makeID("world"), () ->
 			{return new ItemStack(Items.ACACIA_PLANKS);}),
 			GADGETS_TAB = FabricItemGroupBuilder.build(makeID("gadgets"),
-					() -> {return new ItemStack(TConRegistry.stone_rod);});
+					() -> {return new ItemStack(RegistryModImpl.stone_rod);});
 	
 	// Add this to VM arguments to see debug logs
 	// -Dfabric.log.level=debug
@@ -65,7 +65,7 @@ public class TConstruct implements ModInitializer {
 		RRPCallback.EVENT.register(a -> a.add(0, RESOURCE_PACK));
 		// Register everything first!
 		SoundRegistry.registerAll();
-		TConRegistry.initialize();
+		RegistryModImpl.initialize();
 		
 		EntityRegistry.registerAllBlockEntityTypes();
 		EntityRegistry.registerAllEntityTypes();

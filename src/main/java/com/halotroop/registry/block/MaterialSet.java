@@ -22,11 +22,10 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.registry.block;
+package com.halotroop.registry.block;
 
-import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.fluid.MoltenMaterialFluid;
-import com.halotroop.tconstruct.registry.TConRegistry;
+import com.halotroop.registry.RegistryMod;
+import com.halotroop.registry.fluid.MoltenMaterialFluid;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -50,7 +49,7 @@ public class MaterialSet {
 	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, @Nullable OreBlock oreBlock, // Block stuff
 	                   @NotNull Item rawItem, @NotNull Item brokenItem, // Item stuff
 	                   Item.Settings blockItemSettings, Type type) { // General stuff
-		TConstruct.logger.debug("Registering material set for " + baseName);
+		RegistryMod.logger.debug("Registering material set for " + baseName);
 		// BlockItemPair will do its own cottonCheck.
 		this.block = new BlockItemPair(baseName + "_block", storageBlock, blockItemSettings);
 		if (!type.equals(Type.ALLOY) && oreBlock != null) {
@@ -58,15 +57,15 @@ public class MaterialSet {
 		} else {
 			this.ore = null;
 		}
-		this.molten = new MoltenMaterialFluid(baseName, TConstruct.GENERAL_TAB);
+		this.molten = new MoltenMaterialFluid(baseName, rawItem.getGroup());
 		
 		String rawName = baseName + type.rawSuffix;
-		if (TConRegistry.cottonItemCheck(rawName)) this.rawItem = TConRegistry.registerItem(rawName, rawItem);
-		else this.rawItem = TConRegistry.cottonItem(rawName);
+		if (RegistryMod.cottonItemCheck(rawName)) this.rawItem = RegistryMod.registerItem(rawName, rawItem);
+		else this.rawItem = RegistryMod.cottonItem(rawName);
 		
 		String brokenName = baseName + type.brokenSuffix;
-		if (TConRegistry.cottonBlockCheck(brokenName)) this.brokenItem = TConRegistry.registerItem(brokenName, brokenItem);
-		else this.brokenItem = TConRegistry.cottonItem(brokenName);
+		if (RegistryMod.cottonBlockCheck(brokenName)) this.brokenItem = RegistryMod.registerItem(brokenName, brokenItem);
+		else this.brokenItem = RegistryMod.cottonItem(brokenName);
 	}
 	
 	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, // Block stuff

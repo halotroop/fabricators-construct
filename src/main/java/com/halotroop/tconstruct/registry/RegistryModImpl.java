@@ -24,31 +24,28 @@
 
 package com.halotroop.tconstruct.registry;
 
+import com.halotroop.registry.RegistryMod;
 import com.halotroop.tconstruct.TConstruct;
 import com.halotroop.tconstruct.block.general.CraftingStationBlock;
 import com.halotroop.tconstruct.block.general.PartBuilderBlock;
 import com.halotroop.tconstruct.block.general.StencilTableBlock;
 import com.halotroop.tconstruct.block.smeltery.SmelteryPieceBlock;
 import com.halotroop.tconstruct.item.CastItemSet;
-import com.halotroop.tconstruct.registry.block.BlockItemPair;
-import com.halotroop.tconstruct.registry.block.StoneSet;
-import com.halotroop.tconstruct.registry.block.MaterialSet;
-import com.halotroop.tconstruct.registry.block.WoodenSet;
+import com.halotroop.registry.block.BlockItemPair;
+import com.halotroop.registry.block.StoneSet;
+import com.halotroop.registry.block.MaterialSet;
+import com.halotroop.registry.block.WoodenSet;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 import java.util.List;
 
-public class TConRegistry {
+public class RegistryModImpl {
 	public static final Item.Settings GENERAL_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.GENERAL_TAB);
 	public static final Item.Settings SMELTERY_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.SMELTERY_TAB);
 	public static final Item.Settings TOOLS_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.TOOLS_TAB);
@@ -67,7 +64,7 @@ public class TConRegistry {
 					0, 0, MaterialSet.Type.ALLOY);
 	
 	public static CastItemSet casts = new CastItemSet(false), clay_casts = new CastItemSet(true);
-	public static final Item stone_rod = registerItem("stone_stick",
+	public static final Item stone_rod = RegistryMod.registerItem("stone_stick",
 			new Item(SMELTERY_TAB_GENERIC_SETTINGS));
 	public static final BlockItemPair GROUT = new BlockItemPair("grout", new FallingBlock(FabricBlockSettings.copy(Blocks.CLAY)) {
 		@Override
@@ -123,34 +120,9 @@ public class TConRegistry {
 		}
 	}
 	
-	public static Item registerItem(String name, Item item) {
-		return Registry.register(Registry.ITEM, TConstruct.makeID(name), item);
-	}
-	
-	// Returns true if the block with the given name is NOT registered in the cotton namespace.
-	public static boolean cottonBlockCheck(String name) {
-		Identifier cotton = new Identifier("c", name);
-		return (!FabricLoader.getInstance().isModLoaded("cotton-resources") || (Registry.BLOCK.get(cotton).equals(Blocks.AIR)));
-	}
-	
-	// Returns true if the item with the given name is NOT registered in the cotton namespace.
-	public static boolean cottonItemCheck(String name) {
-		Identifier cotton = new Identifier("c", name);
-		return (FabricLoader.getInstance().isModLoaded("cotton-resources")
-				&& (Registry.ITEM.get(cotton).equals(Items.AIR)));
-	}
-	
 	@Deprecated
 	public static void initialize() {
 		TConstruct.logger.info("Using a dumb way to register blocks and items. Please fix!");
 	} // TODO: Move the registry and find a better way to do this.
 
-	// Returns the cotton equivalent of the block requested.
-	public static Block cottonBlock(String name) {
-		return Registry.BLOCK.get(new Identifier("c", name));
-	}
-	// Returns the cotton equivalent of the item requested.
-	public static Item cottonItem(String name) {
-		return Registry.ITEM.get(new Identifier("c", name));
-	}
 }

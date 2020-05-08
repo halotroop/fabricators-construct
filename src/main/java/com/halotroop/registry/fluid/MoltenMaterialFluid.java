@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package com.halotroop.tconstruct.fluid;
+package com.halotroop.registry.fluid;
 
-import com.halotroop.tconstruct.TConstruct;
+import com.halotroop.registry.RegistryMod;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.BaseFluid;
 import net.minecraft.fluid.Fluid;
@@ -46,8 +46,8 @@ public class MoltenMaterialFluid extends BaseFluid {
 	// Registers itself, and its bucket, don't try to do it again!
 	public MoltenMaterialFluid(String materialName, ItemGroup bucketItemGroup) {
 		this.name = "molten_" + materialName;
-		Registry.register(Registry.FLUID, TConstruct.makeID("molten_" + this.name), this);
-		bucket = Registry.register(Registry.ITEM, TConstruct.makeID(name + "_bucket"),
+		Registry.register(Registry.FLUID, RegistryMod.makeID("molten_" + this.name), this);
+		bucket = Registry.register(Registry.ITEM, RegistryMod.makeID(name + "_bucket"),
 				new BucketItem(this, new Item.Settings().group(bucketItemGroup)));
 	}
 	

@@ -24,8 +24,8 @@
 
 package com.halotroop.tconstruct.item;
 
+import com.halotroop.registry.RegistryMod;
 import com.halotroop.tconstruct.TConstruct;
-import com.halotroop.tconstruct.registry.TConRegistry;
 import net.minecraft.item.Item;
 
 public class CastItemSet {
@@ -63,7 +63,7 @@ public class CastItemSet {
 	}
 	
 	private Item register(String type) {
-		return TConRegistry.registerItem( (clay ? "clay_" : "") + type + "_cast", new CastItem(this.clay));
+		return RegistryMod.registerItem( (clay ? "clay_" : "") + type + "_cast", new CastItem(this.clay));
 	}
 	
 	private static class CastItem extends Item {
