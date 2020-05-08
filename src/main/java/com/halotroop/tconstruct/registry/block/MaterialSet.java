@@ -9,9 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -19,11 +17,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Random;
 
 public class MaterialSet {
-	// TODO: Fluids!
 	public final Item rawItem, brokenItem;
 	@Nullable private final BlockItemPair ore;
 	public final BlockItemPair block;
-	public final Fluid molten;
+	public final MoltenMaterialFluid molten;
 	
 	// The most customizable way to create a set, but good god does it take a lot of big parameters!
 	public MaterialSet(@NotNull String baseName, @NotNull Block storageBlock, @Nullable OreBlock oreBlock, // Block stuff
@@ -64,9 +61,9 @@ public class MaterialSet {
 	
 	// The most basic way to create a set of materials.
 	// All items in a set created with this constructor will have the same settings! Use with care!
-	public MaterialSet(@NotNull String baseName, @NotNull Block.Settings blockSettings,
-	                   @NotNull Item.Settings itemSettings,
-	                   int oreExperience, int miningLevel, @NotNull Type materialType) {
+	public MaterialSet(@NotNull String baseName, @NotNull Item.Settings itemSettings, // Item stuff
+	                   @NotNull Block.Settings blockSettings, int oreExperience, int miningLevel, // Block stuff
+	                   @NotNull Type materialType) { // General stuff
 		this(baseName, new Block(blockSettings), itemSettings, new Item(itemSettings), new Item(itemSettings),
 				oreExperience, miningLevel, materialType);
 	}

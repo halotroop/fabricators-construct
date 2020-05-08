@@ -39,13 +39,13 @@ public class BlockRegistry extends ItemRegistry {
 	public static final DecorStones SEARED_STONE = new DecorStones("seared", "stone", Block.Settings.copy(Blocks.STONE),
 			SMELTERY_TAB_GENERIC_SETTINGS);
 	public static final MaterialSet ARDITE =
-			new MaterialSet("ardite", Block.Settings.of(Material.METAL), GENERAL_TAB_GENERIC_SETTINGS,
+			new MaterialSet("ardite", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
 					0, 0, MaterialSet.Type.METAL);
 	public static final MaterialSet COBALT =
-			new MaterialSet("cobalt", Block.Settings.of(Material.METAL), GENERAL_TAB_GENERIC_SETTINGS,
+			new MaterialSet("cobalt", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
 					0, 0, MaterialSet.Type.METAL);
 	public static final MaterialSet MANYULLYN =
-			new MaterialSet("manyullyn", Block.Settings.of(Material.METAL), GENERAL_TAB_GENERIC_SETTINGS,
+			new MaterialSet("manyullyn", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
 					0, 0, MaterialSet.Type.ALLOY);
 	
 	// --Smeltery Blocks-- \\
