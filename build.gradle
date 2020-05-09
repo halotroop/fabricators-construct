@@ -58,6 +58,14 @@ dependencies {
 	modRuntime "com.github.jellysquid3:phosphor-fabric:${project.phosphor_commit}"
 }
 
+license {
+	header = project.file('HEADER')
+	ext {
+		name = 'halotroop, SlimeKnights'
+		year = 2020
+	}
+}
+
 processResources {
 	inputs.property "version", project.version
 
@@ -102,7 +110,7 @@ publishing {
 	}
 	// select the repositories you want to publish to
 	repositories {
-		File gh = new File(projectDir.parentFile.parentFile, "util/Devan-Repo")
+		File gh = new File(projectDir.parentFile.parentFile, "util/troop-maven")
 		System.out.println(gh)
 		if(gh.exists()) {
 			maven {

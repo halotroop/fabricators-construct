@@ -1,25 +1,18 @@
 /*
- * MIT License
+ * Copyright 2020 halotroop, SlimeKnights
  *
- * Copyright (c) 2020 SlimeKnights, halotroop2288
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+ * Software.
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.halotroop.tconstruct.registry;
@@ -33,8 +26,8 @@ import com.halotroop.tconstruct.block.smeltery.SmelteryPieceBlock;
 import com.halotroop.tconstruct.item.CastItemSet;
 import com.halotroop.registry.block.BlockItemPair;
 import com.halotroop.registry.block.StoneSet;
-import com.halotroop.registry.block.MaterialSet;
 import com.halotroop.registry.block.WoodenSet;
+import io.github.cottonmc.resources.type.MetalResourceType;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -53,20 +46,18 @@ public class RegistryModImpl {
 	public static final Item.Settings WORLD_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.WORLD_TAB);
 	public static final Item.Settings GADGETS_TAB_GENERIC_SETTINGS = new Item.Settings().group(TConstruct.GADGETS_TAB);
 	
-	public static final MaterialSet ARDITE =
-			new MaterialSet("ardite", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
-					0, 0, MaterialSet.Type.METAL);
-	public static final MaterialSet COBALT =
-			new MaterialSet("cobalt", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
-					0, 0, MaterialSet.Type.METAL);
-	public static final MaterialSet MANYULLYN =
-			new MaterialSet("manyullyn", GENERAL_TAB_GENERIC_SETTINGS, Block.Settings.of(Material.METAL),
-					0, 0, MaterialSet.Type.ALLOY);
+	public static final MetalResourceType C_ARDITE = MetalResourceType.builder("ardite")
+			.netherOres().withIngotAffix().build();
+	public static final MetalResourceType C_COBALT = MetalResourceType.builder("cobalt")
+			.netherOres().withIngotAffix().build();
+	public static final MetalResourceType C_MANYULLYN = MetalResourceType.builder("manyullyn")
+			.withIngotAffix().build();
 	
 	public static CastItemSet casts = new CastItemSet(false), clay_casts = new CastItemSet(true);
 	public static final Item stone_rod = RegistryMod.registerItem("stone_stick",
 			new Item(SMELTERY_TAB_GENERIC_SETTINGS));
-	public static final BlockItemPair GROUT = new BlockItemPair("grout", new FallingBlock(FabricBlockSettings.copy(Blocks.CLAY)) {
+	public static final BlockItemPair GROUT = new BlockItemPair("grout",
+			new FallingBlock(FabricBlockSettings.copy(Blocks.CLAY)) {
 		@Override
 		public void buildTooltip(ItemStack stack, BlockView view, List<Text> tooltip, TooltipContext options) {
 			tooltip.add(new TranslatableText("block.tconstruct.grout.tooltip"));
@@ -120,9 +111,9 @@ public class RegistryModImpl {
 		}
 	}
 	
-	@Deprecated
 	public static void initialize() {
-		TConstruct.logger.info("Using a dumb way to register blocks and items. Please fix!");
-	} // TODO: Move the registry and find a better way to do this.
-
+		C_ARDITE.registerAll();
+		C_COBALT.registerAll();
+		C_MANYULLYN.registerAll();
+	}
 }

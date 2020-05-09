@@ -4,15 +4,15 @@
   "version": "${version}",
 
   "name": "Fabricators' Construct",
-  "description": "A little of this, a little of that, a lot of tinkering, and a lot of tools",
+  "description": "A little of this, a little of that, a lot of tinkering, and a lot of tools.\n > 2 ppl worked on this",
   "authors": [
-    "halotroop2288",
-    "shedaniel",
-    "Slime Knights"
+    "halotroop",
+    "SlimeKnights"
   ],
   "contact": {
     "homepage": "https://halotroop.com/",
-    "sources": "https://github.com/halotroop2288/untitled-fabric-forging-mod"
+    "sources": "https://github.com/halotroop/fabricators-construct",
+    "issues": "https://github.com/halotroop/fabricators-construct/issues"
   },
 
   "license": "MIT",
