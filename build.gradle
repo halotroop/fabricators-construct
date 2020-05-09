@@ -37,7 +37,7 @@ dependencies {
 	modApi "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}"
 	include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}"
 
-	modCompile "net.devtech:arrp:0.1.1"
+	modCompile "net.devtech:arrp:0.1.8"
 	modImplementation "io.github.cottonmc:UniversalComponents:${project.univ_comp_version}"
 	include "io.github.cottonmc:UniversalComponents:${project.univ_comp_version}"
 
