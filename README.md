@@ -1,7 +1,12 @@
-# Fabricators' Construct
+![Discord](https://img.shields.io/discord/624100926054989834?color=red&label=discord&style=social)
+![Latest version](https://img.shields.io/github/v/release/halotroop/fabricators-construct?label=latest%20version)
+![Commits since latest release](https://img.shields.io/github/commits-since/halotroop/fabricators-construct/latest?label=commits%20since%20release)
 
+# Fabricators' Construct
 A rewrite of Tinkers' Construct for Fabric mod loader. </br>
-Uses data generators to cut down on the *literal tens of thousands of lines of JSON.* </br>
+Uses data generators and baked models to cut down on the [*literal tens of thousands of lines of JSON.*](https://line-count.herokuapp.com/SlimeKnights/TinkersConstruct) </br>
+![Fabricators' Construct Code Size](https://img.shields.io/github/languages/code-size/halotroop/fabricators-construct?label=fabricators%20size)
+![Tinkers' Construct Code Size](https://img.shields.io/github/languages/code-size/slimeknights/tinkersconstruct?label=tinkers%20size)
 
 ## Credits
 #### Tinkers' Construct
