@@ -29,7 +29,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class RegistryMod implements ModInitializer {
-	public static final String MODID = "registry";
+	public static final String MODID = "tconstruct";
 	public static final Logger logger = LogManager.getLogger(MODID);
 	
 	public static Identifier makeID(String name) {

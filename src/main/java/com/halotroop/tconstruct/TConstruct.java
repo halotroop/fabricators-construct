@@ -37,17 +37,17 @@ public class TConstruct implements ModInitializer {
 	
 	public static final ItemGroup
 			GENERAL_TAB = FabricItemGroupBuilder.build(makeID("general"),
-			() -> {return new ItemStack(RegistryModImpl.GROUT.blockItem);}),
+			() -> new ItemStack(RegistryModImpl.GROUT.blockItem)),
 			TOOLS_TAB = FabricItemGroupBuilder.build(makeID("tools"),
-					() -> {return new ItemStack(Items.DIAMOND_AXE);}),
+					() -> new ItemStack(Items.DIAMOND_AXE)),
 			TOOL_PARTS_TAB = FabricItemGroupBuilder.build(makeID("tool_parts"),
-					() -> {return new ItemStack(Items.STICK);}),
+					() -> new ItemStack(Items.STICK)),
 			SMELTERY_TAB = FabricItemGroupBuilder.build(makeID("smeltery"),
-					() -> {return new ItemStack(RegistryModImpl.SEARED_STONE.smooth.block.blockItem);}),
+					() -> new ItemStack(RegistryModImpl.SEARED_STONE.smooth.block.blockItem)),
 			WORLD_TAB = FabricItemGroupBuilder.build(makeID("world"), () ->
-			{return new ItemStack(Items.ACACIA_PLANKS);}),
+					new ItemStack(Items.ACACIA_PLANKS)),
 			GADGETS_TAB = FabricItemGroupBuilder.build(makeID("gadgets"),
-					() -> {return new ItemStack(RegistryModImpl.stone_rod);});
+					() -> new ItemStack(RegistryModImpl.stone_rod));
 	
 	// Add this to VM arguments to see debug logs
 	// -Dfabric.log.level=debug
