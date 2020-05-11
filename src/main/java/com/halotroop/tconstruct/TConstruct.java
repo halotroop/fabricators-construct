@@ -18,8 +18,8 @@
 package com.halotroop.tconstruct;
 
 import com.halotroop.tconstruct.registry.EntityRegistry;
-import com.halotroop.tconstruct.registry.SoundRegistry;
 import com.halotroop.tconstruct.registry.RegistryModImpl;
+import com.halotroop.tconstruct.registry.SoundRegistry;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
@@ -30,6 +30,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static net.devtech.arrp.json.lang.JLang.lang;
 
 public class TConstruct implements ModInitializer {
 	public static final String MODID = "tconstruct";
@@ -56,6 +58,9 @@ public class TConstruct implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		RRPCallback.EVENT.register(a -> a.add(0, RESOURCE_PACK));
+
+		RESOURCE_PACK.addLang(new Identifier("tconstruct", "lang/en_us"), lang());
+
 		// Register everything first!
 		SoundRegistry.registerAll();
 		RegistryModImpl.initialize();
