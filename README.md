@@ -15,7 +15,7 @@ bonii-xx, progwml6, mDiyo, KnightMiner, and many more. </br>
 
 #### Fabricators' Construct
 By the [halotroop team](https://github.com/halotroop/fabricators-construct/graphs/contributors): </br>
-halotroop2288, Half, shedaniel, and more.
+halotroop2288, Half, shedaniel, hydos, and more.
 
 #### Asset credits:
 Blue and Green SlimeCrystal by [baddaspig](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/1287648-tinkers-construct?comment=11208) </br>
