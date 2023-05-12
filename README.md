@@ -1,6 +1,9 @@
-![Discord](https://img.shields.io/discord/624100926054989834?color=red&label=discord&style=social)
-![Latest version](https://img.shields.io/github/v/release/halotroop/fabricators-construct?label=latest%20version)
-![Commits since latest release](https://img.shields.io/github/commits-since/halotroop/fabricators-construct/latest?label=commits%20since%20release)
+ARCHIVED: See [Hephaestus] instead!
+===
+
+This project is no longer active! We may fork [Hephaestus] in the future if we feel the need.
+
+[Hephaestus]:https://github.com/Alpha-s-Stuff/TinkersConstruct/tree/1.18.2
 
 # Fabricators' Construct
 A rewrite of Tinkers' Construct for Fabric mod loader. </br>
